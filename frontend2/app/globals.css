@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
+/* =========================================================
+   NZLCS — Color tokens
+   Tuned around primary #B25D1F. Easy to tweak in one place.
+   ========================================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2ece0; /* warm cream — the base canvas */
+  --foreground: #141008; /* near-black warm — text + brutalist borders */
+  --primary: #b25d1f; /* brand orange */
+  --primary-dark: #8a4715; /* hover / deeper orange */
+  --surface: #ffffff; /* card white */
+  --ink: #1a1208; /* deep espresso — dark sections / footer */
+  --muted: #6b5b48; /* secondary text */
+  --accent: #e8dcc4; /* pale sand — subtle highlights */
+  --border: #141008; /* brutalist hard border */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border-hard: var(--border);
+  --font-sans: var(--font-josefin);
+  --font-display: var(--font-josefin);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-radius: 0 !important; /* neo-brutalism: no rounded anything */
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-josefin), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--surface);
+}
+
+/* =========================================================
+   Brutalist utility classes
+   ========================================================= */
+@layer components {
+  /* Hard border used everywhere */
+  .brut-border {
+    border: 3px solid var(--border);
+  }
+
+  /* Offset hard shadow — the signature brutalist look */
+  .brut-shadow {
+    box-shadow: 8px 8px 0 0 var(--border);
+  }
+  .brut-shadow-sm {
+    box-shadow: 4px 4px 0 0 var(--border);
+  }
+  .brut-shadow-lg {
+    box-shadow: 12px 12px 0 0 var(--border);
+  }
+
+  /* Buttons */
+  .brut-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 3px solid var(--border);
+    box-shadow: 6px 6px 0 0 var(--border);
+    background: var(--surface);
+    color: var(--foreground);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    cursor: pointer;
+  }
+  .brut-btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 0 var(--border);
+  }
+  .brut-btn:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 0 var(--border);
+  }
+  .brut-btn-primary {
+    background: var(--primary);
+    color: #fff;
+  }
+  .brut-btn-primary:hover {
+    background: var(--primary-dark);
+  }
+  .brut-btn-dark {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* Labeled pill / eyebrow */
+  .brut-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    border: 3px solid var(--border);
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+  }
+
+  /* Cards */
+  .brut-card {
+    background: var(--surface);
+    border: 3px solid var(--border);
+    box-shadow: 8px 8px 0 0 var(--border);
+  }
 }
