@@ -6,19 +6,19 @@
    All component colors are driven from these variables — no hardcoded hex.
    ========================================================================= */
 
-/* ---------- PRESET A — Dark Mode (current) ---------- */
+/* ---------- PRESET A — Dark Mode (brand guideline) ---------- */
 :root {
-  --background: #0c1219;
-  --surface: #151d27;
-  --foreground: #e8ecf0;
-  --muted: #8a95a3;
-  --border: #2a3544;
-  --brand: #cf7a3c;
-  --brand-light: #e8a06a;
+  --background: #141311;
+  --surface: #1E1D1A;
+  --foreground: #EDEBE7;
+  --muted: #9B9690;
+  --border: #3A3733;
+  --brand: #D4834A;
+  --brand-light: #E8A672;
   --brand-dark: #a85f28;
-  --secondary: #e8ecf0;
-  --accent: #38b8a4;
-  --on-brand: #0c1219;
+  --secondary: #EDEBE7;
+  --accent: #7FA882;
+  --on-brand: #141311;
 }
 
 /* ---------- PRESET B — Warm Brown (previous) ----------

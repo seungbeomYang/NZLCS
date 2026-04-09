@@ -177,7 +177,7 @@ export default function Home() {
                   <input
                     type={f.type}
                     required={f.required}
-                    className="w-full border border-border bg-secondary px-4 py-3 text-sm text-background placeholder:text-background/50 focus:border-brand focus:outline-none"
+                    className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
                   />
                 </div>
               ))}
@@ -187,7 +187,7 @@ export default function Home() {
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full border border-border bg-secondary px-4 py-3 text-sm text-background placeholder:text-background/50 focus:border-brand focus:outline-none"
+                  className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
                 />
               </div>
               <button
