@@ -53,15 +53,15 @@ export default function Home() {
     <div className="min-h-screen w-full bg-background text-foreground font-sans">
       <Header />
 
-      {/* HERO — full bleed image */}
+      {/* HERO — full bleed video */}
       <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
-        <Image
-          src={HERO_SRC}
-          alt="NZ Laser Cleaning Solutions — laser cleaning in action"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
+        <video
+          src="/home_video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
         />
         {/* dark gradient for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />

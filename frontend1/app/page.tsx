@@ -39,54 +39,44 @@ export default function Home() {
       <Navbar />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="h-screen flex flex-col pt-18 bg-neutral">
-        {/* Text block — compact */}
-        <div className="max-w-4xl mx-auto w-full px-6 lg:px-12 py-8 flex flex-col items-center text-center gap-5">
-          <p className="text-xs tracking-[0.3em] uppercase text-primary">
-            New Zealand Laser Cleaning Services
-          </p>
+      <section className="relative h-screen overflow-hidden">
+        {/* Video — full bleed */}
+        <video
+          src="/home_video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
 
-          <h1 className="text-3xl lg:text-[3rem] xl:text-[3.5rem] font-bold leading-[1.15] tracking-tight text-secondary">
-            <span className="block lg:whitespace-nowrap">Clean with laser precision.</span>
-            <span className="block lg:whitespace-nowrap text-primary">Leave no trace on the environment.</span>
-          </h1>
+        {/* Dark gradient for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
 
-          <p className="text-base text-secondary/65 max-w-2xl leading-relaxed">
-            We remove rust, graffiti, and surface contaminants using advanced laser technology
-            — no chemicals, no damage. New Zealand&apos;s trusted eco-friendly cleaning solution
-            for industrial, commercial, and public facilities.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#services"
-              className="inline-flex items-center px-7 py-3 bg-secondary text-neutral text-sm tracking-widest uppercase hover:bg-primary transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center px-7 py-3 bg-primary text-white text-sm tracking-widest uppercase hover:bg-accent transition-colors"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-
-        {/* Hero media — flex-1 fills remaining viewport height */}
-        {/* TODO: <video> 태그로 교체 예정 (autoPlay muted loop playsInline) */}
-        <div className="relative flex-1 overflow-hidden">
-          <Image
-            src="/example.jpg"
-            alt="Laser cleaning machine in action"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 flex items-end justify-start p-6 bg-gradient-to-t from-secondary/40 to-transparent pointer-events-none">
-            <span className="text-xs tracking-widest uppercase text-white/60 border border-white/20 px-3 py-1.5">
-              Video placeholder — replace with 5s loop
-            </span>
+        {/* Text overlay — bottom left */}
+        <div className="absolute inset-x-0 bottom-0 z-10 px-6 lg:px-12 pb-16">
+          <div className="max-w-2xl flex flex-col gap-4">
+            <p className="text-xs tracking-[0.3em] uppercase text-primary">
+              New Zealand Laser Cleaning Services
+            </p>
+            <h1 className="text-3xl lg:text-[3rem] font-bold leading-[1.15] tracking-tight text-white">
+              <span className="block">Clean with laser precision.</span>
+              <span className="block text-primary">Leave no trace on the environment.</span>
+            </h1>
+            <div className="flex flex-wrap gap-4 mt-2">
+              <a
+                href="#services"
+                className="inline-flex items-center px-7 py-3 bg-white text-secondary text-sm tracking-widest uppercase hover:bg-primary hover:text-white transition-colors"
+              >
+                Services
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center px-7 py-3 bg-primary text-white text-sm tracking-widest uppercase hover:bg-accent transition-colors"
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </div>
       </section>
