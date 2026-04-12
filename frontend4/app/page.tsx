@@ -301,7 +301,7 @@ export default function Home() {
             across New Zealand.
           </p>
         </div>
-        <div className="mx-auto max-w-[1280px] px-8 pb-24">
+        <div className="mx-auto max-w-[1280px] px-8 pb-0">
           <div className="overflow-hidden border border-border">
             <iframe
               title="NZLCS office location"
@@ -317,8 +317,8 @@ export default function Home() {
       </section>
 
       {/* STATISTICS */}
-      <section className="border-t border-border">
-        <div className="pt-24 pb-24">
+      <section>
+        <div className="pt-16 pb-24">
         <div className="border-y border-border">
           <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-y-8 px-8 py-14 text-center md:grid-cols-4">
             {[
