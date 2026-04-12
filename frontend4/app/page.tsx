@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Header from "./components/Header";
+import ScrollToTop from "./components/ScrollToTop";
 
-const LOGO_SRC =
-  "/Fiverr Premium Kit 2/PNG Logo Files/Transparent Logo.png";
+const LOGO_SRC = "/logo-symbol-inverted.png";
 const HERO_SRC = "/hero image .png";
 
 const services = [
@@ -41,9 +41,6 @@ const reasons = [
 
 const formFields = [
   { label: "Name", type: "text", required: true },
-  { label: "Email", type: "email", required: true },
-  { label: "Phone", type: "tel", required: false },
-  { label: "Business Name", type: "text", required: false },
   { label: "Location", type: "text", required: false },
   { label: "Service Needed", type: "text", required: false },
 ];
@@ -52,6 +49,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-background text-foreground font-sans">
       <Header />
+      <ScrollToTop />
 
       {/* HERO — full bleed video */}
       <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
@@ -61,10 +59,10 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover scale-x-[-1]"
         />
         {/* dark gradient for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/85" />
 
         {/* Hero copy — bottom left */}
         <div className="absolute inset-x-0 bottom-0 z-10">
@@ -102,7 +100,7 @@ export default function Home() {
 
       {/* SERVICES — heading row + 3-column grid with bordered cells */}
       <section id="services" className="border-t border-border">
-        <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-10">
+        <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-start">
             <div className="max-w-xl">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
@@ -149,72 +147,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="h-24" aria-hidden />
       </section>
-
-      {/* CTA — Inquiry form left, image right */}
-      <section id="contact" className="border-t border-border">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-2">
-          <div className="px-8 py-20 md:pr-14">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-              Free Quote Inquiry
-            </p>
-            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
-              Request a Quote
-            </h2>
-            <p className="mt-5 max-w-md text-[14px] leading-7 text-muted">
-              Drop us a line below and we&apos;ll get back to you fast. Send a
-              photo of the site and we&apos;ll quote it within two business
-              days.
-            </p>
-
-            <form className="mt-10 space-y-5">
-              {formFields.map((f) => (
-                <div key={f.label}>
-                  <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
-                    {f.label} {f.required && <span className="text-brand">*</span>}
-                  </label>
-                  <input
-                    type={f.type}
-                    required={f.required}
-                    className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
-                  />
-                </div>
-              ))}
-              <div>
-                <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
-                />
-              </div>
-              <button
-                type="button"
-                className="mt-3 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
-              >
-                Send Inquiry →
-              </button>
-            </form>
-          </div>
-
-          <div className="relative min-h-[600px] w-full border-t border-border md:border-t-0 md:border-l">
-            <Image
-              src={HERO_SRC}
-              alt="NZLCS team at work"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
 
       {/* WHY CHOOSE US — 4-column grid same card style */}
       <section id="about">
-        <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-10">
+        <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="max-w-2xl">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
               Why NZLCS
@@ -256,40 +193,174 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="h-24" aria-hidden />
+        <div className="h-24" aria-hidden />    
       </section>
 
-      {/* STATS */}
-      <section className="border-y border-border">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-y-8 px-8 py-14 text-center md:grid-cols-4">
-          {[
-            ["200+", "Projects Completed"],
-            ["50+", "Corporate Clients"],
-            ["5+", "Years in Operation"],
-            ["NZ-wide", "Service Coverage"],
-          ].map(([num, label]) => (
-            <div key={label}>
-              <div className="font-sans text-4xl font-bold text-brand md:text-5xl">
-                {num}
+      {/* FREE QUOTE INQUIRY — form left, image right */}
+      <section id="contact" className="border-t border-border">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-2">
+          <div className="px-8 py-24 md:pr-14">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+              Free Quote Inquiry
+            </p>
+            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+              Request a Quote
+            </h2>
+            <p className="mt-5 max-w-md text-[14px] leading-7 text-muted">
+              Drop us a line below and we&apos;ll get back to you fast. Send a
+              photo of the site and we&apos;ll quote it within two business
+              days.
+            </p>
+
+            <form className="mt-10 space-y-5">
+              {formFields.map((f) => (
+                <div key={f.label}>
+                  <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
+                    {f.label} {f.required && <span className="text-brand">*</span>}
+                  </label>
+                  <input
+                    type={f.type}
+                    required={f.required}
+                    className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
+                  />
+                </div>
+              ))}
+              <div>
+                <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
+                />
               </div>
-              <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
-                {label}
+              <div>
+                <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
+                  Upload <span className="text-brand">*</span>
+                </label>
+                <label
+                  htmlFor="quote-upload"
+                  className="flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent/10 px-6 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-accent transition-colors hover:bg-accent hover:text-background"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                  </svg>
+                  Upload File
+                </label>
+                <input
+                  id="quote-upload"
+                  type="file"
+                  required
+                  accept="image/*,.pdf,.doc,.docx"
+                  className="sr-only"
+                />
               </div>
-            </div>
-          ))}
+              <button
+                type="button"
+                className="mt-3 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
+              >
+                Send Inquiry →
+              </button>
+            </form>
+          </div>
+
+          <div className="relative min-h-[600px] w-full border-t border-border md:border-t-0 md:border-l">
+            <Image
+              src={HERO_SRC}
+              alt="NZLCS team at work"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* STATISTICS */}
+      <section className="border-t border-border">
+        <div className="pt-24 pb-24">
+        <div className="border-y border-border">
+          <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-y-8 px-8 py-14 text-center md:grid-cols-4">
+            {[
+              ["200+", "Projects Completed"],
+              ["50+", "Corporate Clients"],
+              ["5+", "Years in Operation"],
+              ["NZ-wide", "Service Coverage"],
+            ].map(([num, label]) => (
+              <div key={label}>
+                <div className="font-sans text-4xl font-bold text-brand md:text-5xl">
+                  {num}
+                </div>
+                <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
+                  {label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        </div>
+
+        {/* BRANDS — heading above, logos center, subtitle below */}
+        <div className="mx-auto max-w-[1280px] px-8 pb-24 text-center">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            Trusted Partners
+          </p>
+          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            We work with the best brands
+          </h2>
+
+          <div className="mx-auto mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
+            {[
+              { name: "Clarinspect", src: "/partner logos/Clarinspect-Logo_Landscape_RGB.webp" },
+              { name: "FPANZ", src: "/partner logos/FPANZ-Icons-FULL-MEMBER-2024_2025-1 (1).png" },
+              { name: "Zone Architectural", src: "/partner logos/zoneArchitectural.png" },
+              { name: "AkzoNobel", src: "/partner logos/akzonobel.png" },
+              { name: "Dulux", src: "/partner logos/Dulux_Australia_Logo.png" },
+              { name: "Resene", src: "/partner logos/resene-logo-1.webp" },
+            ].map((brand) => (
+              <div
+                key={brand.name}
+                className="flex h-24 items-center justify-center rounded-sm bg-white px-5 py-4 shadow-sm"
+              >
+                <Image
+                  src={brand.src}
+                  alt={brand.name}
+                  width={160}
+                  height={64}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-10 max-w-2xl text-[15px] leading-7 text-muted">
+            Working alongside trusted partners to provide exceptional painting
+            and fire protection solutions.
+          </p>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer>
-        <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-10 px-8 py-16 md:grid-cols-4">
+      <footer className="border-t border-border">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-10 px-8 py-20 md:grid-cols-4">
           <div>
             <Image
               src={LOGO_SRC}
               alt="NZLCS"
-              width={140}
-              height={48}
-              className="h-12 w-auto"
+              width={96}
+              height={96}
+              className="h-24 w-auto"
             />
             <p className="mt-4 text-[12px] leading-6 text-muted">
               NZ Laser Cleaning Solutions — New Zealand&apos;s eco-friendly

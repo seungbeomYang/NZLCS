@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const LOGO_SRC = "/Fiverr Premium Kit 2/PNG Logo Files/Transparent Logo.png";
+const LOGO_SRC = "/logo-symbol-inverted.png";
 
 export default function Header() {
   const [hidden, setHidden] = useState(false);
@@ -52,10 +52,10 @@ export default function Header() {
           <Image
             src={LOGO_SRC}
             alt="NZLCS"
-            width={140}
-            height={48}
+            width={80}
+            height={80}
             priority
-            className="h-12 w-auto brightness-0 invert"
+            className="h-20 w-auto"
           />
         </a>
         <nav className="hidden items-center gap-9 text-[13px] font-bold uppercase tracking-[0.18em] text-foreground md:flex">
@@ -64,6 +64,7 @@ export default function Header() {
           <a href="#about" className="hover:text-brand-light">About</a>
           <a href="#gallery" className="hover:text-brand-light">Gallery</a>
           <a href="#contact" className="hover:text-brand-light">Contact</a>
+          <a href="#blog" className="hover:text-brand-light">Blog</a>
         </nav>
         <div className="hidden items-center gap-5 text-foreground md:flex">
           <a
