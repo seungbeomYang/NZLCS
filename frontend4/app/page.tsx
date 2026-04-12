@@ -287,6 +287,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MAP — office location */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12 text-center">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            Visit Us
+          </p>
+          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            Our Office
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-7 text-muted">
+            Based in Auckland, serving industrial and commercial sites
+            across New Zealand.
+          </p>
+        </div>
+        <div className="mx-auto max-w-[1280px] px-8 pb-24">
+          <div className="overflow-hidden border border-border">
+            <iframe
+              title="NZLCS office location"
+              src="https://www.google.com/maps?q=Auckland,New+Zealand&output=embed"
+              width="100%"
+              height="450"
+              style={{ border: 0, filter: "grayscale(0.6) contrast(1.1)" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* STATISTICS */}
       <section className="border-t border-border">
         <div className="pt-24 pb-24">
