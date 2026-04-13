@@ -52,10 +52,10 @@ export default function Header() {
           <Image
             src={LOGO_SRC}
             alt="NZLCS"
-            width={80}
-            height={80}
+            width={100}
+            height={100}
             priority
-            className="h-20 w-auto"
+            className="h-[100px] w-auto"
           />
           <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
             NZ Laser Cleaning Solutions Ltd

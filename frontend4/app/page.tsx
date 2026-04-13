@@ -41,8 +41,9 @@ const reasons = [
 
 const formFields = [
   { label: "Name", type: "text", required: true },
+  { label: "Phone", type: "tel", required: false },
+  { label: "Email", type: "email", required: true },
   { label: "Location", type: "text", required: false },
-  { label: "Service Needed", type: "text", required: false },
 ];
 
 export default function Home() {
@@ -359,7 +360,7 @@ export default function Home() {
             ].map((brand) => (
               <div
                 key={brand.name}
-                className="flex h-24 items-center justify-center rounded-sm bg-white px-5 py-4 shadow-sm"
+                className="flex h-24 items-center justify-center rounded-sm bg-background px-5 py-4"
               >
                 <Image
                   src={brand.src}
