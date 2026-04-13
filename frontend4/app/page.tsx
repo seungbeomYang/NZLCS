@@ -349,14 +349,13 @@ export default function Home() {
             We work with the best brands
           </h2>
 
-          <div className="mx-auto mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
+          <div className="mx-auto mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
             {[
-              { name: "Clarinspect", src: "/partner logos/Clarinspect-Logo_Landscape_RGB.webp" },
-              { name: "FPANZ", src: "/partner logos/FPANZ-Icons-FULL-MEMBER-2024_2025-1 (1).png" },
-              { name: "Zone Architectural", src: "/partner logos/zoneArchitectural.png" },
-              { name: "AkzoNobel", src: "/partner logos/akzonobel.png" },
-              { name: "Dulux", src: "/partner logos/Dulux_Australia_Logo.png" },
-              { name: "Resene", src: "/partner logos/resene-logo-1.webp" },
+              { name: "Clarinspect", src: "/partner_logos_officially_provided/Clarinspect.png" },
+              { name: "Resene", src: "/partner_logos_officially_provided/Resene.png" },
+              { name: "Dulux", src: "/partner_logos_officially_provided/Dulux.png" },
+              { name: "Zone", src: "/partner_logos_officially_provided/Zone.png" },
+              { name: "AkzoNobel", src: "/partner_logos_officially_provided/AkzoNobel.jpg" },
             ].map((brand) => (
               <div
                 key={brand.name}

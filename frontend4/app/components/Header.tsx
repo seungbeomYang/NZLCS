@@ -48,7 +48,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-8 py-5">
-        <a href="#" className="flex items-center gap-2">
+        <a href="#" className="flex flex-col items-center gap-1">
           <Image
             src={LOGO_SRC}
             alt="NZLCS"
@@ -57,14 +57,17 @@ export default function Header() {
             priority
             className="h-20 w-auto"
           />
+          <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
+            NZ Laser Cleaning Solutions Ltd
+          </span>
         </a>
         <nav className="hidden items-center gap-9 text-[13px] font-bold uppercase tracking-[0.18em] text-foreground md:flex">
           <a href="#" className="hover:text-brand-light">Home</a>
           <a href="#services" className="hover:text-brand-light">Services</a>
           <a href="#about" className="hover:text-brand-light">About</a>
           <a href="#gallery" className="hover:text-brand-light">Gallery</a>
-          <a href="#contact" className="hover:text-brand-light">Contact</a>
           <a href="#blog" className="hover:text-brand-light">Blog</a>
+          <a href="#contact" className="hover:text-brand-light">Contact</a>
         </nav>
         <div className="hidden items-center gap-5 text-foreground md:flex">
           <a
