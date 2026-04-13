@@ -41,8 +41,8 @@ const reasons = [
 
 const formFields = [
   { label: "Name", type: "text", required: true },
-  { label: "Phone", type: "tel", required: false },
   { label: "Email", type: "email", required: true },
+  { label: "Phone", type: "tel", required: false },
   { label: "Location", type: "text", required: false },
 ];
 
@@ -237,7 +237,7 @@ export default function Home() {
               </div>
               <div>
                 <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
-                  Upload <span className="text-brand">*</span>
+                  Upload
                 </label>
                 <label
                   htmlFor="quote-upload"
@@ -262,9 +262,9 @@ export default function Home() {
                 <input
                   id="quote-upload"
                   type="file"
-                  required
                   accept="image/*,.pdf,.doc,.docx"
                   className="sr-only"
+
                 />
               </div>
               <button
