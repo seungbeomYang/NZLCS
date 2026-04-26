@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>NZLCS Frontend — Change Report (April 2026)</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: "Page " counter(page) " / " counter(pages);
+      font-family: "Helvetica", "Arial", sans-serif;
+      font-size: 9pt;
+      color: #888;
+    }
+    @bottom-left {
+      content: "NZLCS — Change Report — April 2026";
+      font-family: "Helvetica", "Arial", sans-serif;
+      font-size: 9pt;
+      color: #888;
+    }
+  }
+  @page :first {
+    margin: 0;
+    @bottom-right { content: ""; }
+    @bottom-left { content: ""; }
+  }
+
+  :root {
+    --brand: #D4834A;
+    --brand-dark: #a85f28;
+    --brand-light: #f6e3d2;
+    --ink: #1f1b18;
+    --ink-soft: #4a4540;
+    --muted: #7a716a;
+    --line: #e6dfd8;
+    --bg-soft: #faf6f1;
+    --good: #2f8a5a;
+    --info: #2f6e9a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    height: 297mm;
+    width: 210mm;
+    background:
+      linear-gradient(135deg, rgba(212,131,74,0.96) 0%, rgba(168,95,40,0.96) 100%);
+    color: #fff;
+    padding: 30mm 20mm;
+    position: relative;
+    page-break-after: always;
+  }
+  .cover .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 10pt;
+    opacity: 0.85;
+    margin-bottom: 18mm;
+  }
+  .cover h1 {
+    font-size: 38pt;
+    line-height: 1.1;
+    margin: 0 0 6mm 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .cover .subtitle {
+    font-size: 14pt;
+    opacity: 0.95;
+    max-width: 140mm;
+    line-height: 1.4;
+  }
+  .cover .meta {
+    position: absolute;
+    bottom: 28mm;
+    left: 20mm;
+    right: 20mm;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.35);
+    padding-top: 8mm;
+    font-size: 10pt;
+  }
+  .cover .meta div b { display: block; font-size: 8pt; letter-spacing: 2px;
+                       text-transform: uppercase; opacity: 0.7; margin-bottom: 2mm; }
+
+  .cover .scope {
+    margin-top: 22mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm 12mm;
+    max-width: 160mm;
+  }
+  .cover .scope .item {
+    border-left: 3px solid #fff;
+    padding-left: 5mm;
+  }
+  .cover .scope .item b { display: block; font-size: 11pt; margin-bottom: 1mm; }
+  .cover .scope .item span { font-size: 9.5pt; opacity: 0.9; }
+
+  /* ---------- TYPOGRAPHY ---------- */
+  h2 {
+    font-size: 19pt;
+    color: var(--ink);
+    margin: 14mm 0 4mm 0;
+    padding-bottom: 2mm;
+    border-bottom: 2px solid var(--brand);
+    letter-spacing: -0.3px;
+  }
+  h2 .num {
+    color: var(--brand);
+    font-weight: 800;
+    margin-right: 4mm;
+  }
+  h3 {
+    font-size: 13pt;
+    margin: 8mm 0 2mm 0;
+    color: var(--ink);
+  }
+  h4 {
+    font-size: 10.5pt;
+    margin: 5mm 0 1mm 0;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  p { margin: 0 0 3mm 0; color: var(--ink-soft); }
+  a { color: var(--brand-dark); text-decoration: none; border-bottom: 1px dotted var(--brand-dark); }
+  code, pre {
+    font-family: "Menlo", "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+  }
+  code {
+    background: var(--bg-soft);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--brand-dark);
+    border: 1px solid var(--line);
+  }
+  pre {
+    background: #1f1b18;
+    color: #f1ebe4;
+    padding: 4mm 5mm;
+    border-radius: 4px;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+  pre code {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+  }
+  ul, ol { padding-left: 6mm; margin: 2mm 0 4mm 0; color: var(--ink-soft); }
+  li { margin-bottom: 1.5mm; }
+
+  /* ---------- TOC ---------- */
+  .toc {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand);
+    padding: 6mm 8mm;
+    margin: 6mm 0;
+  }
+  .toc h3 { margin-top: 0; color: var(--brand-dark); text-transform: uppercase; letter-spacing: 2px; font-size: 9pt; }
+  .toc ol { columns: 2; column-gap: 10mm; margin: 0; padding-left: 5mm; }
+  .toc li { color: var(--ink); break-inside: avoid; margin-bottom: 1mm; }
+
+  /* ---------- AT A GLANCE CARDS ---------- */
+  .glance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 5mm 6mm;
+    background: #fff;
+    page-break-inside: avoid;
+  }
+  .card .tag {
+    display: inline-block;
+    font-size: 8pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-bottom: 2mm;
+  }
+  .card .tag.dev { background: #e3edf6; color: var(--info); }
+  .card .tag.cms { background: #e3f1ea; color: var(--good); }
+  .card h4 { margin: 0 0 1mm 0; font-size: 11.5pt; color: var(--ink); text-transform: none; letter-spacing: 0; }
+  .card p { font-size: 9.5pt; margin: 0; color: var(--ink-soft); }
+
+  /* ---------- DIAGRAM ---------- */
+  .diagram-wrap {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 6mm;
+    margin: 5mm 0 8mm 0;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+  .diagram-wrap svg { width: 100%; height: auto; max-width: 170mm; }
+  .caption { font-size: 9pt; color: var(--muted); text-align: center; margin-top: 2mm; font-style: italic; }
+
+  /* ---------- SCREENSHOT PLACEHOLDER ---------- */
+  .shot {
+    border: 2px dashed var(--brand);
+    background: repeating-linear-gradient(45deg, #faf6f1, #faf6f1 8px, #f3ecdf 8px, #f3ecdf 16px);
+    border-radius: 4px;
+    padding: 18mm 8mm;
+    text-align: center;
+    color: var(--brand-dark);
+    margin: 4mm 0;
+    page-break-inside: avoid;
+  }
+  .shot .label { font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 9pt; }
+  .shot .hint { font-size: 9pt; color: var(--muted); margin-top: 2mm; font-style: italic; }
+
+  /* ---------- TWO COL ---------- */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+  }
+  .two-col > div { page-break-inside: avoid; }
+
+  /* ---------- STEP LIST ---------- */
+  .steps { counter-reset: step; padding-left: 0; list-style: none; margin-top: 3mm; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 11mm;
+    margin-bottom: 4mm;
+    page-break-inside: avoid;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 7mm; height: 7mm;
+    background: var(--brand);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 7mm;
+    font-weight: 800;
+    font-size: 10pt;
+  }
+  .steps li b { color: var(--ink); display: block; margin-bottom: 1mm; }
+
+  /* ---------- TABLE ---------- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3mm 0 5mm 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    text-align: left;
+    padding: 3mm 4mm;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: var(--bg-soft);
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--brand-dark);
+    border-bottom: 2px solid var(--brand);
+  }
+  td code { font-size: 8.5pt; }
+
+  /* ---------- CALLOUT ---------- */
+  .callout {
+    border-left: 4px solid var(--brand);
+    background: var(--bg-soft);
+    padding: 4mm 5mm;
+    margin: 4mm 0;
+    border-radius: 2px;
+    page-break-inside: avoid;
+  }
+  .callout.info { border-color: var(--info); background: #eef5fb; }
+  .callout.tip  { border-color: var(--good); background: #eef7f1; }
+  .callout b { color: var(--ink); }
+
+  /* ---------- FILE TREE ---------- */
+  .tree {
+    background: #1f1b18;
+    color: #f1ebe4;
+    border-radius: 4px;
+    padding: 4mm 6mm;
+    font-family: "Menlo", "Consolas", monospace;
+    font-size: 8.5pt;
+    line-height: 1.55;
+    page-break-inside: avoid;
+  }
+  .tree .dir { color: #e8a672; }
+  .tree .new { color: #9ad6a6; }
+  .tree .edit { color: #f3c97c; }
+  .tree .cmt { color: #807870; }
+
+  /* ---------- BADGES ---------- */
+  .badge {
+    display: inline-block;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 3mm;
+    vertical-align: middle;
+  }
+  .badge.new  { background: #e3f1ea; color: var(--good); }
+  .badge.edit { background: #f7eadb; color: var(--brand-dark); }
+
+  .pagebreak { page-break-before: always; }
+
+  /* layout helpers */
+  .section { page-break-inside: auto; }
+  .keep    { page-break-inside: avoid; }
+
+  /* lead paragraph */
+  .lead {
+    font-size: 11.5pt;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="cover">
+  <div class="eyebrow">Change Report</div>
+  <h1>NZLCS Website<br/>Update Summary</h1>
+  <div class="subtitle">
+    A walkthrough of recent updates to the NZLCS site — what's new, how it works,
+    and how to keep it running yourself.
+  </div>
+
+  <div class="scope">
+    <div class="item"><b>Homepage refresh</b><span>Logo + design polish</span></div>
+    <div class="item"><b>New Blog</b><span>Filterable, CMS-driven articles</span></div>
+    <div class="item"><b>New Gallery</b><span>Before/after project showcase</span></div>
+    <div class="item"><b>Sanity CMS connected</b><span>Edit content without code</span></div>
+  </div>
+
+  <div class="meta">
+    <div><b>Project</b>NZLCS — frontend4</div>
+    <div><b>Prepared</b>27 April 2026</div>
+    <div><b>Stack</b>Next.js 16 · Sanity CMS</div>
+  </div>
+</section>
+
+<!-- ===================== EXEC SUMMARY ===================== -->
+<section>
+  <h2><span class="num">01</span>Overview</h2>
+
+  <p class="lead">
+    This release brings the NZLCS site one big step closer to a fully editable, content-driven
+    marketing site. The homepage has been polished, two new content sections — <b>Blog</b> and
+    <b>Gallery</b> — have been added, and the whole site is now connected to <b>Sanity CMS</b>
+    so non-technical staff can publish posts and projects without touching code.
+  </p>
+
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li>Overview</li>
+      <li>What changed at a glance</li>
+      <li>How it all fits together</li>
+      <li>Homepage refresh</li>
+      <li>New Blog section</li>
+      <li>New Gallery section</li>
+      <li>Sanity CMS — schemas &amp; setup</li>
+      <li>How to add a Blog Post</li>
+      <li>How to add a Gallery Project</li>
+      <li>Categories &amp; filtering</li>
+      <li>Developer notes</li>
+      <li>Running locally &amp; environment</li>
+      <li>File structure</li>
+    </ol>
+  </div>
+
+  <h2><span class="num">02</span>What changed at a glance</h2>
+
+  <div class="glance">
+    <div class="card">
+      <span class="tag">Edit</span>
+      <h4>Homepage polish</h4>
+      <p>Logo and header text repositioned, plus minor design tweaks across hero, services, and stats sections. No structural changes — same sections, cleaner look.</p>
+    </div>
+    <div class="card">
+      <span class="tag">New</span>
+      <h4>Blog section</h4>
+      <p>A new <code>/blog</code> route with a filterable article grid and per-post detail pages. Content is pulled live from Sanity and supports rich text, images, categories and related-post recommendations.</p>
+    </div>
+    <div class="card">
+      <span class="tag">New</span>
+      <h4>Gallery section</h4>
+      <p>A new <code>/gallery</code> route showcasing past projects with an interactive <b>before/after slider</b>, project specs, additional photo strip, and category filtering.</p>
+    </div>
+    <div class="card">
+      <span class="tag cms">CMS</span>
+      <h4>Sanity CMS integration</h4>
+      <p>The whole site now reads from Sanity. A studio is mounted at <code>/studio</code> with three schemas — <b>post</b>, <b>project</b> and <b>category</b> — so the team can edit copy and add work without a developer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARCHITECTURE ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">03</span>How it all fits together</h2>
+  <p>
+    Below is a high-level view of how content moves from the team's edits in Sanity through to
+    what visitors see on the live site.
+  </p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#a85f28" />
+        </marker>
+        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fff" />
+          <stop offset="100%" stop-color="#faf6f1" />
+        </linearGradient>
+      </defs>
+
+      <!-- Boxes -->
+      <g font-family="Helvetica, Arial, sans-serif" font-size="14">
+
+        <!-- Author / Editor -->
+        <rect x="20" y="130" width="150" height="100" rx="8" fill="url(#g1)" stroke="#D4834A" stroke-width="2"/>
+        <text x="95" y="165" text-anchor="middle" font-weight="700" fill="#1f1b18">NZLCS Team</text>
+        <text x="95" y="187" text-anchor="middle" fill="#7a716a" font-size="11">Writes posts &amp;</text>
+        <text x="95" y="203" text-anchor="middle" fill="#7a716a" font-size="11">uploads project</text>
+        <text x="95" y="219" text-anchor="middle" fill="#7a716a" font-size="11">photos</text>
+
+        <!-- Sanity Studio -->
+        <rect x="220" y="50" width="180" height="120" rx="8" fill="url(#g1)" stroke="#D4834A" stroke-width="2"/>
+        <text x="310" y="80" text-anchor="middle" font-weight="700" fill="#1f1b18">Sanity Studio</text>
+        <text x="310" y="100" text-anchor="middle" fill="#7a716a" font-size="11">/studio (in-browser CMS)</text>
+        <text x="310" y="125" text-anchor="middle" fill="#a85f28" font-size="11" font-weight="700">post · project · category</text>
+        <text x="310" y="148" text-anchor="middle" fill="#7a716a" font-size="11">Edits saved instantly</text>
+
+        <!-- Sanity Content Lake -->
+        <rect x="220" y="200" width="180" height="120" rx="8" fill="url(#g1)" stroke="#D4834A" stroke-width="2"/>
+        <text x="310" y="230" text-anchor="middle" font-weight="700" fill="#1f1b18">Sanity Content Lake</text>
+        <text x="310" y="250" text-anchor="middle" fill="#7a716a" font-size="11">Hosted database + CDN</text>
+        <text x="310" y="275" text-anchor="middle" fill="#7a716a" font-size="11">Stores text, images,</text>
+        <text x="310" y="291" text-anchor="middle" fill="#7a716a" font-size="11">metadata for every doc</text>
+
+        <!-- Next.js -->
+        <rect x="450" y="130" width="180" height="100" rx="8" fill="url(#g1)" stroke="#D4834A" stroke-width="2"/>
+        <text x="540" y="160" text-anchor="middle" font-weight="700" fill="#1f1b18">Next.js Site</text>
+        <text x="540" y="180" text-anchor="middle" fill="#7a716a" font-size="11">Fetches via GROQ queries</text>
+        <text x="540" y="200" text-anchor="middle" fill="#7a716a" font-size="11">Renders blog &amp; gallery</text>
+        <text x="540" y="218" text-anchor="middle" fill="#a85f28" font-size="11" font-weight="700">ISR · revalidate 60s</text>
+
+        <!-- Visitor -->
+        <rect x="660" y="130" width="120" height="100" rx="8" fill="#D4834A" stroke="#a85f28" stroke-width="2"/>
+        <text x="720" y="170" text-anchor="middle" font-weight="700" fill="#fff">Visitor</text>
+        <text x="720" y="195" text-anchor="middle" fill="#fff" font-size="11">Sees the live</text>
+        <text x="720" y="211" text-anchor="middle" fill="#fff" font-size="11">site in browser</text>
+      </g>
+
+      <!-- Arrows -->
+      <g stroke="#a85f28" stroke-width="2" fill="none">
+        <line x1="170" y1="170" x2="218" y2="110" marker-end="url(#arr)"/>
+        <line x1="310" y1="170" x2="310" y2="198" marker-end="url(#arr)"/>
+        <line x1="400" y1="260" x2="540" y2="232" marker-end="url(#arr)"/>
+        <line x1="630" y1="180" x2="658" y2="180" marker-end="url(#arr)"/>
+      </g>
+
+      <!-- Labels on arrows -->
+      <g font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#a85f28" font-style="italic">
+        <text x="195" y="125">Edits</text>
+        <text x="320" y="190">Saves</text>
+        <text x="455" y="255">Reads</text>
+        <text x="635" y="172">HTML</text>
+      </g>
+    </svg>
+    <div class="caption">Figure 1 · Content flow from Sanity Studio to a website visitor</div>
+  </div>
+
+  <div class="callout info">
+    <b>What this means in practice:</b> when someone on the NZLCS team publishes a new blog post
+    or project in Sanity, the website picks up the change within roughly a minute — no
+    redeploy, no code change, no developer needed.
+  </div>
+</section>
+
+<!-- ===================== HOMEPAGE ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">04</span>Homepage refresh <span class="badge edit">Edited</span></h2>
+
+  <p>
+    The homepage keeps the same overall structure (hero video, services preview, why-NZLCS,
+    quote form, map, stats, partners) but has been visually tightened up.
+  </p>
+
+  <h3>What's been changed</h3>
+  <ul>
+    <li><b>Logo + header text repositioned</b> for better balance across screen sizes.</li>
+    <li><b>Minor design tweaks</b> across the hero and supporting sections — spacing, alignment, and typographic polish.</li>
+    <li>No content sections were added or removed; existing content (services, stats, partners) is unchanged.</li>
+  </ul>
+
+  <div class="shot">
+    <div class="label">Homepage screenshot — to be added</div>
+    <div class="hint">Drop a screenshot of the updated homepage here (replace this placeholder).</div>
+  </div>
+
+  <h3>Files touched</h3>
+  <table>
+    <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>app/page.tsx</code></td><td>Homepage layout and content</td></tr>
+      <tr><td><code>app/components/Header.tsx</code></td><td>Logo + nav (positioning tweaks)</td></tr>
+      <tr><td><code>app/globals.css</code></td><td>Brand colour tokens, spacing</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== BLOG ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">05</span>New Blog section <span class="badge new">New</span></h2>
+
+  <p>
+    A full blog has been added at <code>/blog</code>. It's designed so the team can publish
+    articles (project write-ups, advice posts, news) directly from Sanity, without touching code.
+  </p>
+
+  <div class="two-col">
+    <div>
+      <h4>Blog list page <code>/blog</code></h4>
+      <ul>
+        <li>3-column responsive grid of blog cards.</li>
+        <li>Filter chips at the top to filter by category.</li>
+        <li>Each card shows the cover image, category, read time, title and excerpt.</li>
+        <li>Re-fetches every 60 seconds (ISR), so new posts appear quickly.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Blog detail page <code>/blog/[slug]</code></h4>
+      <ul>
+        <li>Cover image, title, tags (category + extras), publish date, author, read time.</li>
+        <li>Rich-text body — headings, blockquotes, links, inline images.</li>
+        <li>"Related articles" strip showing 3 other posts.</li>
+        <li>Statically generated for every published post for fast loads.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="label">Blog list + detail screenshots — to be added</div>
+    <div class="hint">Side-by-side screenshots of the list view and a detail page work well here.</div>
+  </div>
+
+  <h4>Sanity fields used</h4>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>What it's for</th></tr></thead>
+    <tbody>
+      <tr><td><code>title</code></td><td>String</td><td>Article title</td></tr>
+      <tr><td><code>slug</code></td><td>Slug</td><td>URL — e.g. <code>/blog/my-first-post</code></td></tr>
+      <tr><td><code>excerpt</code></td><td>Text</td><td>Short summary shown on card &amp; SEO</td></tr>
+      <tr><td><code>category</code></td><td>Reference → category</td><td>Drives the filter chips</td></tr>
+      <tr><td><code>tags</code></td><td>Array of strings</td><td>Extra tags shown on the detail page</td></tr>
+      <tr><td><code>publishedAt</code></td><td>Datetime</td><td>Sort &amp; display date</td></tr>
+      <tr><td><code>author</code></td><td>String</td><td>Defaults to "NZLCS Team"</td></tr>
+      <tr><td><code>readTime</code></td><td>Number</td><td>Minutes — shown on the card</td></tr>
+      <tr><td><code>coverImage</code></td><td>Image (with hotspot)</td><td>Hero of the post + card thumbnail</td></tr>
+      <tr><td><code>body</code></td><td>Portable Text</td><td>Rich content — headings, links, quotes, images</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">06</span>New Gallery section <span class="badge new">New</span></h2>
+
+  <p>
+    The Gallery at <code>/gallery</code> is the headline new feature for showcasing finished work.
+    It's purpose-built for "before and after" project storytelling.
+  </p>
+
+  <div class="two-col">
+    <div>
+      <h4>Gallery list page <code>/gallery</code></h4>
+      <ul>
+        <li>3-column grid of <b>project cards</b>.</li>
+        <li>Each card shows a split preview — half "before", half "after" — divided by a vertical line.</li>
+        <li>Category filter chips at the top, sharing the same category list as the blog.</li>
+        <li>Cards display category, location, title and short summary.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project detail page <code>/gallery/[slug]</code></h4>
+      <ul>
+        <li><b>Interactive before/after slider</b> — drag to compare the two states.</li>
+        <li><b>Project specs sidebar</b> — flexible label/value pairs (e.g. Surface, Area, Duration).</li>
+        <li>Rich-text project write-up via Portable Text.</li>
+        <li><b>More photos</b> strip — additional images with captions.</li>
+        <li>Related projects shown at the bottom.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="label">Gallery + before/after slider screenshots — to be added</div>
+    <div class="hint">Recommended: list page, then a screenshot of the slider mid-drag on a detail page.</div>
+  </div>
+
+  <h4>Sanity fields used</h4>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>What it's for</th></tr></thead>
+    <tbody>
+      <tr><td><code>title</code></td><td>String</td><td>Project name</td></tr>
+      <tr><td><code>slug</code></td><td>Slug</td><td>URL — e.g. <code>/gallery/auckland-roof-coating</code></td></tr>
+      <tr><td><code>category</code></td><td>Reference → category</td><td>Drives the filter chips</td></tr>
+      <tr><td><code>year</code></td><td>Number</td><td>When the project was done</td></tr>
+      <tr><td><code>location</code></td><td>String</td><td>e.g. "Auckland CBD"</td></tr>
+      <tr><td><code>summary</code></td><td>Text</td><td>Short blurb shown on cards</td></tr>
+      <tr><td><code>beforeImage</code></td><td>Image</td><td>Left side of the slider</td></tr>
+      <tr><td><code>afterImage</code></td><td>Image</td><td>Right side of the slider</td></tr>
+      <tr><td><code>specs</code></td><td>Array of {label, value}</td><td>The "specs" sidebar on the detail page</td></tr>
+      <tr><td><code>morePhotos</code></td><td>Array of {label, image}</td><td>Additional photo strip</td></tr>
+      <tr><td><code>body</code></td><td>Portable Text</td><td>Long-form write-up</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== SANITY ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">07</span>Sanity CMS — schemas &amp; setup <span class="badge new">New</span></h2>
+
+  <p>
+    Sanity is the "back office" of the site — a hosted content database with an in-browser editor
+    we host alongside the site itself.
+  </p>
+
+  <h3>Where to find it</h3>
+  <ul>
+    <li><b>Studio URL:</b> <code>https://&lt;your-domain&gt;/studio</code></li>
+    <li><b>Local dev:</b> <code>http://localhost:3000/studio</code></li>
+    <li>Log in with the email/Google account that's been invited to the Sanity project.</li>
+  </ul>
+
+  <h3>The three schemas</h3>
+  <div class="glance">
+    <div class="card">
+      <span class="tag cms">Schema</span>
+      <h4>post</h4>
+      <p>One entry per blog article. Drives <code>/blog</code>.</p>
+    </div>
+    <div class="card">
+      <span class="tag cms">Schema</span>
+      <h4>project</h4>
+      <p>One entry per gallery project. Drives <code>/gallery</code>.</p>
+    </div>
+    <div class="card">
+      <span class="tag cms">Schema</span>
+      <h4>category</h4>
+      <p>Shared taxonomy with an <code>appliesTo</code> field — the same category can be available to posts, projects, or both.</p>
+    </div>
+    <div class="card">
+      <span class="tag dev">Dev</span>
+      <h4>Live previews + ISR</h4>
+      <p>Every page is fetched server-side with a 60-second revalidate window, plus tagged caching, so updates appear quickly without redeploying.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW TO BLOG ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">08</span>How to add a Blog Post</h2>
+  <p>For non-technical team members. You only need a browser.</p>
+
+  <ol class="steps">
+    <li><b>Open the Studio.</b> Go to <code>/studio</code> on the live site (or <code>localhost:3000/studio</code> in development) and log in.</li>
+    <li><b>Click "Post" in the left sidebar</b> and then the green "+" button to create a new post.</li>
+    <li><b>Fill in the title.</b> The slug (URL) is generated automatically from the title — you can edit it if needed.</li>
+    <li><b>Write a short excerpt.</b> 1–2 sentences. This is what shows on the blog grid card and in search engine results.</li>
+    <li><b>Pick a category.</b> Choose an existing one from the dropdown, or create a new one (see Section 10).</li>
+    <li><b>Add tags</b> if you want extra labels on the article (optional).</li>
+    <li><b>Set the publish date</b> and confirm the author (defaults to "NZLCS Team").</li>
+    <li><b>Set the read time</b> in minutes — used as a hint to readers.</li>
+    <li><b>Upload a cover image.</b> Drag-drop in the cover image field. Use the hotspot tool to choose what stays visible when the image is cropped.</li>
+    <li><b>Write the body.</b> Use the Portable Text editor — you can add headings, bold/italic, blockquotes, links and inline images.</li>
+    <li><b>Click Publish</b> in the bottom-right. The article will appear on the live <code>/blog</code> page within roughly a minute.</li>
+  </ol>
+
+  <div class="callout tip">
+    <b>Tip:</b> use "Save as draft" while you're still working. Drafts don't appear on the public site.
+  </div>
+</section>
+
+<!-- ===================== HOW TO GALLERY ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">09</span>How to add a Gallery Project</h2>
+
+  <ol class="steps">
+    <li><b>Open the Studio</b> at <code>/studio</code> and click "Project" in the left sidebar.</li>
+    <li><b>Click "+"</b> to create a new project entry.</li>
+    <li><b>Title.</b> e.g. "Glenfield Warehouse Re-Coat". The slug is auto-generated.</li>
+    <li><b>Pick a category, year, and location</b> (e.g. category: Coatings, year: 2026, location: Auckland).</li>
+    <li><b>Write a one-line summary</b> for the card view.</li>
+    <li><b>Upload the Before image</b> — the original "before" photo. This will be the left side of the slider.</li>
+    <li><b>Upload the After image</b> — the finished "after" photo. This will be the right side. <i>Tip: the two photos should be taken from a similar angle for the slider effect to work well.</i></li>
+    <li><b>Add specs</b> — click "Add item" and enter label/value pairs (e.g. "Surface area" → "1,200 m²", "Duration" → "3 weeks"). Add as many as you want.</li>
+    <li><b>Add the project write-up</b> in the body field — describe the brief, the work done, the result.</li>
+    <li><b>Add more photos</b> (optional). Each item is an image plus a short label/caption (e.g. "Detail of the parapet flashing").</li>
+    <li><b>Publish.</b> The project appears on <code>/gallery</code> within ~60 seconds.</li>
+  </ol>
+
+  <div class="callout">
+    <b>Image guidance:</b> JPG or PNG, ideally 2000px wide or larger. Sanity will automatically resize and serve smaller versions to visitors via its CDN.
+  </div>
+</section>
+
+<!-- ===================== CATEGORIES ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">10</span>Categories &amp; filtering</h2>
+
+  <p>
+    Categories are shared between blog posts and gallery projects. A single category document
+    has an <code>appliesTo</code> field — tick "post", "project", or both — which controls
+    where it shows up.
+  </p>
+
+  <h3>Adding a category</h3>
+  <ol class="steps">
+    <li><b>Studio → Category → +</b> to create a new category.</li>
+    <li><b>Title</b> (e.g. "Roof Coatings"). The slug is auto-generated.</li>
+    <li><b>Set <code>appliesTo</code></b> — tick "post" if it should appear as a blog filter, "project" for a gallery filter, or both.</li>
+    <li><b>(Optional) sort order</b> — a number that controls the order categories appear in the filter bar.</li>
+    <li><b>Publish.</b> The new category instantly becomes selectable inside Post and Project documents.</li>
+  </ol>
+
+  <div class="callout info">
+    <b>Why this matters:</b> the same "Coatings" or "Concrete" label can be used on a blog
+    article and on a gallery project — visitors see consistent vocabulary across the site, and
+    you only have to maintain one list.
+  </div>
+</section>
+
+<!-- ===================== DEV NOTES ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">11</span>Developer notes</h2>
+
+  <h3>Stack</h3>
+  <table>
+    <thead><tr><th>Layer</th><th>Choice</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Framework</td><td>Next.js 16 (App Router, RSC)</td><td>React 19, TypeScript 5</td></tr>
+      <tr><td>Styling</td><td>Tailwind CSS v4</td><td>Brand tokens in <code>app/globals.css</code></td></tr>
+      <tr><td>CMS</td><td>Sanity 5.22 + next-sanity 12.3</td><td>Studio mounted at <code>/studio</code></td></tr>
+      <tr><td>Rich text</td><td>@portabletext/react 6</td><td>Custom renderer in <code>app/components/PortableText.tsx</code></td></tr>
+      <tr><td>Images</td><td>@sanity/image-url + next/image</td><td>Hotspot &amp; CDN-served</td></tr>
+      <tr><td>Caching</td><td>ISR — <code>revalidate: 60</code></td><td>Tagged via <code>sanity/lib/fetch.ts</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Key files</h3>
+  <table>
+    <thead><tr><th>File</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td><code>sanity.config.ts</code></td><td>Studio config — title, project ID, plugins, schema list</td></tr>
+      <tr><td><code>sanity/env.ts</code></td><td>Reads <code>NEXT_PUBLIC_SANITY_PROJECT_ID</code> &amp; <code>NEXT_PUBLIC_SANITY_DATASET</code></td></tr>
+      <tr><td><code>sanity/lib/client.ts</code></td><td>Sanity client (CDN enabled)</td></tr>
+      <tr><td><code>sanity/lib/queries.ts</code></td><td>GROQ queries — posts, projects, related, categories</td></tr>
+      <tr><td><code>sanity/lib/fetch.ts</code></td><td>Wrapper around <code>client.fetch</code> with ISR tags</td></tr>
+      <tr><td><code>sanity/lib/image.ts</code></td><td><code>urlFor()</code> image-URL builder</td></tr>
+      <tr><td><code>sanity/lib/types.ts</code></td><td>TypeScript interfaces for posts/projects/categories</td></tr>
+      <tr><td><code>sanity/schemas/{post,project,category}.ts</code></td><td>Sanity schema definitions</td></tr>
+      <tr><td><code>app/blog/page.tsx</code> &amp; <code>BlogList.tsx</code></td><td>Blog list (server) + filter UI (client)</td></tr>
+      <tr><td><code>app/blog/[slug]/page.tsx</code></td><td>Blog detail + <code>generateStaticParams</code></td></tr>
+      <tr><td><code>app/gallery/page.tsx</code> &amp; <code>GalleryList.tsx</code></td><td>Gallery list (server) + filter UI (client)</td></tr>
+      <tr><td><code>app/gallery/[slug]/page.tsx</code></td><td>Project detail page</td></tr>
+      <tr><td><code>app/gallery/[slug]/BeforeAfterSlider.tsx</code></td><td>Drag-to-compare slider component</td></tr>
+      <tr><td><code>app/components/PortableText.tsx</code></td><td>Rich-text renderer (default + large variants)</td></tr>
+      <tr><td><code>app/components/FilterChip.tsx</code></td><td>Reused by blog &amp; gallery filters</td></tr>
+      <tr><td><code>app/studio/[[...tool]]/page.tsx</code></td><td>Mounts Sanity Studio at <code>/studio</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Caching strategy</h3>
+  <p>
+    Both list and detail pages are server-rendered with <code>revalidate: 60</code>. Each fetch
+    is also tagged (e.g. <code>posts</code>, <code>projects</code>, <code>post:&lt;slug&gt;</code>)
+    via <code>sanity/lib/fetch.ts</code> so we can extend to webhook-based instant revalidation
+    later without changing call sites.
+  </p>
+</section>
+
+<!-- ===================== RUNNING ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">12</span>Running locally &amp; environment</h2>
+
+  <h3>Required environment variables</h3>
+  <pre><code>NEXT_PUBLIC_SANITY_PROJECT_ID=xxxxxxxx
+NEXT_PUBLIC_SANITY_DATASET=production</code></pre>
+
+  <p>Put these in <code>.env.local</code> at the repo root. Both are read by <code>sanity/env.ts</code>.</p>
+
+  <h3>Common commands</h3>
+  <table>
+    <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>npm install</code></td><td>Install dependencies</td></tr>
+      <tr><td><code>npm run dev</code></td><td>Start the dev server at <code>localhost:3000</code> (Studio at <code>/studio</code>)</td></tr>
+      <tr><td><code>npm run build</code></td><td>Production build — compiles all blog &amp; gallery pages</td></tr>
+      <tr><td><code>npm run start</code></td><td>Run the production build locally</td></tr>
+      <tr><td><code>npm run lint</code></td><td>Lint the codebase</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <b>Heads-up:</b> on first install, the Sanity Studio dependency tree is large — give the install
+    a couple of minutes the first time. Subsequent runs are fast.
+  </div>
+</section>
+
+<!-- ===================== FILE STRUCTURE ===================== -->
+<section class="pagebreak">
+  <h2><span class="num">13</span>File structure</h2>
+  <p>
+    Highlights of what's new vs. edited in this release. <span class="new" style="color:#9ad6a6;font-family:monospace;">●</span> = new file,
+    <span class="edit" style="color:#f3c97c;font-family:monospace;">●</span> = edited file.
+  </p>
+
+  <pre class="tree"><span class="dir">app/</span>
+  page.tsx                          <span class="edit">●</span> <span class="cmt"># homepage tweaks (logo, design)</span>
+  <span class="dir">components/</span>
+    Header.tsx                      <span class="edit">●</span> <span class="cmt"># logo + nav positioning</span>
+    PortableText.tsx                <span class="new">●</span> <span class="cmt"># renders rich text from Sanity</span>
+    FilterChip.tsx                  <span class="new">●</span> <span class="cmt"># category filter buttons</span>
+  <span class="dir">blog/</span>                             <span class="new">●</span>
+    page.tsx                        <span class="new">●</span> <span class="cmt"># list page (server)</span>
+    BlogList.tsx                    <span class="new">●</span> <span class="cmt"># filterable grid (client)</span>
+    <span class="dir">[slug]/</span>
+      page.tsx                      <span class="new">●</span> <span class="cmt"># detail page</span>
+  <span class="dir">gallery/</span>                          <span class="new">●</span>
+    page.tsx                        <span class="new">●</span>
+    GalleryList.tsx                 <span class="new">●</span>
+    <span class="dir">[slug]/</span>
+      page.tsx                      <span class="new">●</span>
+      BeforeAfterSlider.tsx         <span class="new">●</span> <span class="cmt"># interactive comparator</span>
+  <span class="dir">studio/[[...tool]]/</span>               <span class="new">●</span>
+    page.tsx                        <span class="new">●</span> <span class="cmt"># mounts the Sanity Studio</span>
+
+<span class="dir">sanity/</span>                              <span class="new">●</span>
+  env.ts                            <span class="new">●</span>
+  <span class="dir">lib/</span>
+    client.ts                       <span class="new">●</span>
+    fetch.ts                        <span class="new">●</span>
+    queries.ts                      <span class="new">●</span>
+    image.ts                        <span class="new">●</span>
+    types.ts                        <span class="new">●</span>
+    categories.ts                   <span class="new">●</span>
+  <span class="dir">schemas/</span>
+    post.ts                         <span class="new">●</span>
+    project.ts                      <span class="new">●</span>
+    category.ts                     <span class="new">●</span>
+
+sanity.config.ts                    <span class="new">●</span> <span class="cmt"># studio configuration</span>
+.env.local                          <span class="cmt"># project id + dataset (not committed)</span></pre>
+
+  <div class="callout tip">
+    <b>Next up (suggested):</b> wire the homepage hero copy and partner logos to Sanity so the
+    team can edit those too, and add a webhook-based instant revalidate to drop the 60-second wait.
+  </div>
+</section>
+
+</body>
+</html>
