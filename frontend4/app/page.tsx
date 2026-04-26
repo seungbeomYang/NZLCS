@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
-const LOGO_SRC = "/logo-symbol-inverted.png";
 const HERO_SRC = "/hero image .png";
 
 const services = [
@@ -100,28 +100,28 @@ export default function Home() {
       </section>
 
       {/* SERVICES — heading row + 3-column grid with bordered cells */}
-      <section id="services" className="border-t border-border">
+      <section id="services" className="border-t border-border pb-24">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-start">
-            <div className="max-w-xl">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
+            <div>
+              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
                 Services
               </p>
-              <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+              <h2 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
                 What We Do
               </h2>
-              <p className="mt-5 max-w-lg text-[15px] leading-7 text-muted">
-                Precise, eco-friendly laser technology for a wide range of
-                surfaces and industries. From rust removal to graffiti and
-                industrial prep — one tool, no chemicals.
-              </p>
             </div>
+            <p className="max-w-md text-[15px] leading-7 text-muted md:mt-2">
+              Precise, eco-friendly laser technology for a wide range of
+              surfaces and industries. From rust removal to graffiti and
+              industrial prep — one tool, no chemicals.
+            </p>
           </div>
         </div>
 
         {/* Card grid with vertical dividers like the reference */}
-        <div className="border-y border-border">
-          <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-3">
+        <div>
+          <div className="mx-auto grid max-w-[1280px] grid-cols-1 border border-border md:grid-cols-3">
             {services.map((s, i) => (
               <div
                 key={s.title}
@@ -129,11 +129,14 @@ export default function Home() {
                   i !== services.length - 1 ? "md:border-r border-border" : ""
                 } ${i !== 0 ? "border-t md:border-t-0" : ""}`}
               >
-                <div className="mb-6 aspect-[4/3] w-full overflow-hidden rounded-sm border border-border bg-surface">
+                <div className="mb-6 aspect-[4/3] w-full overflow-hidden border border-border bg-surface">
                   <div className="flex h-full w-full items-center justify-center">
                     <div className="h-14 w-14 rounded-full bg-brand/15 ring-1 ring-brand/30" />
                   </div>
                 </div>
+                <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+                  {`0${i + 1}`} — Service
+                </p>
                 <h3 className="font-sans text-2xl font-bold">{s.title}</h3>
                 <p className="mt-3 text-[14px] leading-7 text-muted">
                   {s.body}
@@ -151,16 +154,18 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US — 4-column grid same card style */}
-      <section id="about">
+      <section id="about" className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
-          <div className="max-w-2xl">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-              Why NZLCS
-            </p>
-            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
-              Why choose us?
-            </h2>
-            <p className="mt-5 max-w-xl text-[15px] leading-7 text-muted">
+          <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
+            <div>
+              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+                Why NZLCS
+              </p>
+              <h2 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
+                Why choose us?
+              </h2>
+            </div>
+            <p className="max-w-md text-[15px] leading-7 text-muted md:mt-2">
               With years of hands-on experience across industrial and
               commercial sites, we bring precision, safety, and environmental
               responsibility to every job — no shortcuts.
@@ -168,8 +173,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="border-y border-border">
-          <div className="mx-auto grid max-w-[1280px] grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+        <div>
+          <div className="mx-auto grid max-w-[1280px] grid-cols-1 border border-border sm:grid-cols-2 md:grid-cols-4">
             {reasons.map((r, i) => (
               <div
                 key={r.title}
@@ -179,7 +184,7 @@ export default function Home() {
                     : ""
                 } ${i !== 0 ? "border-t md:border-t-0 sm:[&:nth-child(2)]:border-t-0" : ""}`}
               >
-                <div className="mb-6 aspect-[4/3] w-full overflow-hidden rounded-sm border border-border bg-surface">
+                <div className="mb-6 aspect-[4/3] w-full overflow-hidden border border-border bg-surface">
                   <div className="flex h-full w-full items-center justify-center">
                     <span className="font-sans text-5xl font-bold text-brand/30">
                       0{i + 1}
@@ -380,80 +385,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-10 px-8 py-20 md:grid-cols-4">
-          <div>
-            <Image
-              src={LOGO_SRC}
-              alt="NZLCS"
-              width={96}
-              height={96}
-              className="h-24 w-auto"
-            />
-            <p className="mt-4 text-[12px] leading-6 text-muted">
-              NZ Laser Cleaning Solutions — New Zealand&apos;s eco-friendly
-              laser cleaning specialists.
-            </p>
-          </div>
-          <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
-              Services
-            </h5>
-            <ul className="space-y-2 text-[13px] text-muted">
-              <li>Rust Removal</li>
-              <li>Graffiti Removal</li>
-              <li>Industrial Prep</li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
-              Company
-            </h5>
-            <ul className="space-y-2 text-[13px] text-muted">
-              <li>About Us</li>
-              <li>Gallery</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
-              Contact
-            </h5>
-            <ul className="space-y-2 text-[13px] text-muted">
-              <li>Auckland, New Zealand</li>
-              <li>info@nzlcs.co.nz</li>
-              <li>021 419 933</li>
-            </ul>
-            <div className="mt-4 flex gap-3">
-              {/* TODO: replace # with real social URLs once accounts created */}
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="flex h-8 w-8 items-center justify-center border border-border text-foreground hover:bg-brand hover:text-on-brand hover:border-brand"
-              >
-                <span className="text-xs font-bold">f</span>
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-8 w-8 items-center justify-center border border-border text-foreground hover:bg-brand hover:text-on-brand hover:border-brand"
-              >
-                <span className="text-xs font-bold">IG</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="bg-brand text-on-brand">
-          <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] md:flex-row">
-            <span>© {new Date().getFullYear()} NZLCS. All rights reserved.</span>
-            <div className="flex gap-6">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const LOGO_SRC = "/logo-symbol-inverted.png";
@@ -47,27 +48,27 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-8 py-5">
-        <a href="#" className="flex flex-col items-center gap-0.5">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-8 py-2">
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src={LOGO_SRC}
             alt="NZLCS"
             width={100}
             height={100}
             priority
-            className="h-[100px] w-auto"
+            className="h-20 w-auto"
           />
-          <span className="text-[13px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
-            NZ Laser Cleaning Solutions Ltd
+          <span className="text-[18px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
+            NZLCS
           </span>
-        </a>
+        </Link>
         <nav className="hidden items-center gap-9 text-[13px] font-bold uppercase tracking-[0.18em] text-foreground md:flex">
-          <a href="#" className="hover:text-brand-light">Home</a>
-          <a href="#services" className="hover:text-brand-light">Services</a>
-          <a href="#about" className="hover:text-brand-light">About</a>
-          <a href="#gallery" className="hover:text-brand-light">Gallery</a>
-          <a href="#blog" className="hover:text-brand-light">Blog</a>
-          <a href="#contact" className="hover:text-brand-light">Contact</a>
+          <Link href="/" className="hover:text-brand-light">Home</Link>
+          <Link href="/services" className="hover:text-brand-light">Services</Link>
+          <Link href="/about" className="hover:text-brand-light">About</Link>
+          <Link href="/gallery" className="hover:text-brand-light">Gallery</Link>
+          <Link href="/blog" className="hover:text-brand-light">Blog</Link>
+          <Link href="/contact" className="hover:text-brand-light">Contact</Link>
         </nav>
         <div className="hidden items-center gap-5 text-foreground md:flex">
           <a
