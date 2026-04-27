@@ -40,8 +40,25 @@ export default async function GalleryPage() {
       <ScrollToTop />
 
       {/* HERO */}
-      <section>
-        <div className="mx-auto max-w-[1280px] px-8 pt-40 pb-16">
+      <section className="relative overflow-hidden border-b border-border pt-[180px] pb-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right,#D4834A 1px,transparent 1px),linear-gradient(to bottom,#D4834A 1px,transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 70% at 20% 50%,rgba(212,131,74,0.06) 0%,transparent 65%)",
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-[1280px] px-8">
           <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             Project Gallery
           </p>
