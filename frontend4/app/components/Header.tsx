@@ -32,6 +32,7 @@ export default function Header() {
       }
     };
 
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -46,18 +47,18 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-8 py-5">
-        <a href="/" className="flex flex-col items-center gap-0.5">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-8 py-2">
+        <a href="/" className="flex items-center gap-3">
           <Image
             src={LOGO_SRC}
             alt="NZLCS"
             width={100}
             height={100}
             priority
-            className="h-[100px] w-auto"
+            className="h-20 w-auto"
           />
-          <span className="text-[13px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
-            NZ Laser Cleaning Solutions Ltd
+          <span className="text-[18px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
+            NZLCS
           </span>
         </a>
         <nav className="hidden items-center gap-9 text-[13px] font-bold uppercase tracking-[0.18em] text-foreground md:flex">
