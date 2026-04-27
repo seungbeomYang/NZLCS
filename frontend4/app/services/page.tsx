@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-export default function ServicesPage() {
-  return <main className="min-h-screen flex items-center justify-center p-8">Services</main>;
-=======
 import type { Metadata } from "next";
 import Image from "next/image";
 import {
@@ -563,5 +559,4 @@ export default function ServicesPage() {
       </footer>
     </div>
   );
->>>>>>> Stashed changes
 }

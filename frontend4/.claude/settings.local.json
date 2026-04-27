@@ -8,5 +8,9 @@
       "Bash(npm install:*)",
       "Bash(node -e \"require\\('lucide-react'\\); console.log\\('ok'\\)\")"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "Sanity"
+  ],
+  "enableAllProjectMcpServers": true
 }
