@@ -97,23 +97,36 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
-  const { error } = await resend.emails.send({
-    from,
-    to,
-    replyTo: email,
-    subject: `Quote inquiry — ${name}`,
-    html,
-    text,
-    attachments,
-  });
+  try {
+    const { data, error } = await resend.emails.send({
+      from,
+      to,
+      replyTo: email,
+      subject: `Quote inquiry — ${name}`,
+      html,
+      text,
+      attachments,
+    });
 
-  if (error) {
-    console.error("Resend error:", error);
-    return Response.json(
-      { error: "Couldn't send the message. Please try again or email us directly." },
-      { status: 502 },
-    );
+    if (error) {
+      console.error("[contact] Resend returned error:", error);
+      const detail =
+        process.env.NODE_ENV === "production"
+          ? "Couldn't send the message. Please try again or email us directly."
+          : `${error.name ?? "Error"}: ${error.message ?? "Unknown error from Resend."}`;
+      return Response.json({ error: detail }, { status: 502 });
+    }
+
+    console.log("[contact] sent", data?.id);
+    return Response.json({ ok: true });
+  } catch (err) {
+    console.error("[contact] threw:", err);
+    const detail =
+      process.env.NODE_ENV === "production"
+        ? "Couldn't send the message. Please try again or email us directly."
+        : err instanceof Error
+          ? err.message
+          : "Unexpected error.";
+    return Response.json({ error: detail }, { status: 500 });
   }
-
-  return Response.json({ ok: true });
 }
