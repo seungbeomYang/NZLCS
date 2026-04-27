@@ -44,7 +44,7 @@ interface Application {
 
 interface Benefit {
   title: string;
-  desc: string;
+  desc: React.ReactNode;
 }
 
 interface ServiceData {
@@ -146,7 +146,7 @@ const services: ServiceData[] = [
       },
       {
         title: "Mobile",
-        desc: "We come to your yard or workshop — no need to transport vehicles to us.",
+        desc: <>We come to your yard or workshop, or vehicles can be dropped off at our Auckland facility.<br />Whichever works best for your operation.</>,
       },
     ],
   },
@@ -417,30 +417,22 @@ export default function ServicesPage() {
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section className="border-t border-border">
-        <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-12">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+        {/* Header */}
+        <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-14">
+          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             FAQ
           </p>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr]">
-            <div>
-              <h2 className="font-sans text-3xl font-bold leading-tight md:text-4xl">
-                Common Questions
-              </h2>
-              <p className="mt-5 text-[14px] leading-7 text-muted">
-                Can&apos;t find what you&apos;re looking for? Contact us directly
-                and we&apos;ll respond within one business day.
-              </p>
-              <a
-                href="/contact"
-                className="mt-8 inline-block border-b border-brand pb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-brand hover:border-brand-light hover:text-brand-light"
-              >
-                Ask Us Directly →
-              </a>
-            </div>
-            <ServicesAccordion />
-          </div>
+          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            Frequently asked questions.
+          </h2>
         </div>
-        <div className="h-16" aria-hidden />
+
+        {/* Accordion */}
+        <div className="mx-auto max-w-[1280px] px-8">
+          <ServicesAccordion />
+        </div>
+
+        <div className="h-20" aria-hidden />
       </section>
 
       {/* ── BOTTOM CTA ────────────────────────────────────────────────────── */}
@@ -449,25 +441,19 @@ export default function ServicesPage() {
           <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             Get in Touch
           </p>
-          <h2 className="mx-auto max-w-2xl font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="mx-auto max-w-2xl font-sans text-4xl font-bold leading-tight md:text-5xl whitespace-nowrap">
             Not sure which service you need?
           </h2>
-          <p className="mx-auto mt-6 max-w-md text-[15px] leading-7 text-muted">
-            Send us a photo of the job and we&apos;ll assess it and respond within
-            two business days. No obligation — just a straight answer.
+          <p className="mt-6 text-[15px] leading-7 text-muted">
+            Send us a photo of the job and we&apos;ll assess it and respond within two business days.<br />
+            No obligation — just a straight answer.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+          <div className="mt-10 flex items-center justify-center">
             <a
               href="/contact"
               className="inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand transition-colors hover:bg-brand-light"
             >
               Get a Free Quote →
-            </a>
-            <a
-              href="tel:021419933"
-              className="inline-block border border-border px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:border-brand hover:text-brand"
-            >
-              Call 021 419 933
             </a>
           </div>
         </div>
