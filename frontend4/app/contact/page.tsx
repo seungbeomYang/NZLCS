@@ -2,19 +2,13 @@ import type { Metadata } from "next";
 import Header from "../components/Header";
 import ScrollToTop from "../components/ScrollToTop";
 import Footer from "../components/Footer";
+import QuoteForm from "../components/QuoteForm";
 
 export const metadata: Metadata = {
   title: "Contact — NZLCS",
   description:
     "Get in touch with NZ Laser Cleaning Solutions. Request a free quote, call us, or visit our Auckland office.",
 };
-
-const formFields = [
-  { label: "Name", type: "text", required: true },
-  { label: "Email", type: "email", required: true },
-  { label: "Phone", type: "tel", required: false },
-  { label: "Location", type: "text", required: false },
-];
 
 type DirectContact = {
   label: string;
@@ -131,66 +125,7 @@ export default function ContactPage() {
               days.
             </p>
 
-            <form className="mt-10 space-y-5">
-              {formFields.map((f) => (
-                <div key={f.label}>
-                  <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
-                    {f.label} {f.required && <span className="text-brand">*</span>}
-                  </label>
-                  <input
-                    type={f.type}
-                    required={f.required}
-                    className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
-                  />
-                </div>
-              ))}
-              <div>
-                <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
-                  Upload
-                </label>
-                <label
-                  htmlFor="quote-upload"
-                  className="flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent/10 px-6 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-accent transition-colors hover:bg-accent hover:text-background"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="17 8 12 3 7 8" />
-                    <line x1="12" y1="3" x2="12" y2="15" />
-                  </svg>
-                  Upload File
-                </label>
-                <input
-                  id="quote-upload"
-                  type="file"
-                  accept="image/*,.pdf,.doc,.docx"
-                  className="sr-only"
-                />
-              </div>
-              <button
-                type="button"
-                className="mt-3 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
-              >
-                Send Inquiry →
-              </button>
-            </form>
+            <QuoteForm formId="quote-upload-contact" />
           </div>
 
           {/* RIGHT — Direct Contact box */}
