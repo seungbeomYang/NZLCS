@@ -57,34 +57,6 @@ const valueCards: ValueData[] = [
 ];
 
 
-function ImagePlaceholder({ label, className = "h-full min-h-[420px]" }: { label: string; className?: string }) {
-  return (
-    <div className={`relative overflow-hidden bg-surface ${className}`}>
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.045]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,#D4834A 1px,transparent 1px),linear-gradient(to bottom,#D4834A 1px,transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%,rgba(212,131,74,0.07) 0%,transparent 70%)",
-        }}
-      />
-      <div className="absolute bottom-6 left-6">
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/35">
-          {label}
-        </span>
-      </div>
-    </div>
-  );
-}
 
 function ValueCard({ card }: { card: ValueData }) {
   const { number, category, title, desc, icon: Icon, accentColor } = card;
@@ -191,8 +163,13 @@ export default function AboutPage() {
           </div>
 
           {/* Image */}
-          <div className="min-h-[420px]">
-            <ImagePlaceholder label="Photo coming soon" />
+          <div className="relative min-h-[420px] overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Service_and_About_sample_image/About_01.png"
+              alt="Our Story"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -246,7 +223,12 @@ export default function AboutPage() {
         {/* 16:9 team photo placeholder */}
         <div className="mx-auto max-w-[1280px] px-8 pb-24">
           <div className="relative aspect-video w-full overflow-hidden border border-border">
-            <ImagePlaceholder label="Team photo coming soon" className="absolute inset-0" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Service_and_About_sample_image/About_02.png"
+              alt="Our team"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>

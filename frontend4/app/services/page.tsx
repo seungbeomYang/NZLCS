@@ -51,6 +51,7 @@ interface ServiceData {
   id: string;
   eyebrow: string;
   title: string;
+  imageSrc: string;
   imageLeft: boolean;
   intro: string;
   howItWorks: string;
@@ -65,6 +66,7 @@ const services: ServiceData[] = [
     id: "rust-oxide-removal",
     eyebrow: "SERVICE 01",
     title: "Rust & Oxide Removal",
+    imageSrc: "/Service_and_About_sample_image/Service_01.png",
     imageLeft: true,
     intro:
       "Rust left untreated leads to structural failure, costly rework, and coating system breakdown. Traditional abrasive blasting removes rust — but it also damages the substrate, creates significant waste, and leaves behind blast media residue that experienced buyers and inspectors notice immediately.",
@@ -110,6 +112,7 @@ const services: ServiceData[] = [
     id: "vehicle-rust-removal",
     eyebrow: "SERVICE 02",
     title: "Vehicle Body Rust Removal",
+    imageSrc: "/Service_and_About_sample_image/Service_02.png",
     imageLeft: false,
     intro:
       "Rusty vehicles — particularly those imported from overseas — are frequently affected by severe underbody corrosion caused by calcium chloride road salt. Traditional sandblasting removes the rust but leaves behind residue that experienced buyers recognise immediately, depressing resale value and raising questions about vehicle history.",
@@ -154,6 +157,7 @@ const services: ServiceData[] = [
     id: "industrial-surface-prep",
     eyebrow: "SERVICE 03",
     title: "Industrial Surface Preparation",
+    imageSrc: "/Service_and_About_sample_image/Service_03.png",
     imageLeft: true,
     intro:
       "Surface preparation is the most critical factor in any protective coating system. Poor prep leads to premature coating failure, expensive rework, and potential safety risks. NZLCS provides laser-based surface preparation that delivers a clean, oxide-free surface — without abrasive blast media, dust, or chemical treatment.",
@@ -199,39 +203,11 @@ const services: ServiceData[] = [
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function ImagePlaceholder({ number }: { number: string }) {
+function ServiceImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative h-full min-h-[380px] overflow-hidden bg-surface">
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.045]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,#D4834A 1px,transparent 1px),linear-gradient(to bottom,#D4834A 1px,transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%,rgba(212,131,74,0.07) 0%,transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 flex items-center justify-center select-none"
-      >
-        <span className="font-sans text-[160px] font-bold leading-none text-brand/[0.06]">
-          {number}
-        </span>
-      </div>
-      <div className="absolute bottom-6 left-6">
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/35">
-          Photo coming soon
-        </span>
-      </div>
+    <div className="relative min-h-[380px] overflow-hidden">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
     </div>
   );
 }
@@ -267,8 +243,7 @@ function BenefitCard({ title, desc }: Benefit) {
 }
 
 function ServiceSection({ service }: { service: ServiceData }) {
-  const { eyebrow, title, imageLeft, intro, howItWorks, applications, benefits } = service;
-  const num = eyebrow.replace("SERVICE ", "");
+  const { eyebrow, title, imageSrc, imageLeft, intro, howItWorks, applications, benefits } = service;
 
   return (
     <section id={service.id} className="border-t border-border" style={{ scrollMarginTop: "24px" }}>
@@ -302,7 +277,7 @@ function ServiceSection({ service }: { service: ServiceData }) {
               "border-border",
             ].join(" ")}
           >
-            <ImagePlaceholder number={num} />
+            <ServiceImage src={imageSrc} alt={title} />
           </div>
 
           {/* How It Works */}
