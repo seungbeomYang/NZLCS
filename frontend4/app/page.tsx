@@ -13,12 +13,12 @@ const services = [
     href: "/services#rust-oxide-removal",
   },
   {
-    title: "Graffiti Removal",
-    body: "Fast, chemical-free graffiti removal from public infrastructure, building facades, and commercial properties. Safe for repeated use.",
+    title: "Vehicle Body Rust Removal",
+    body: "Residue-free underbody rust removal for Japanese import vehicles — no sandblast trace, higher resale value for dealers, WOF-ready.",
     href: "/services#vehicle-rust-removal",
   },
   {
-    title: "Industrial Surface Prep",
+    title: "Industrial Surface Preparation",
     body: "Pre-paint surface preparation, coating removal, and weld cleanup for manufacturing and industrial sites across New Zealand.",
     href: "/services#industrial-surface-prep",
   },
@@ -31,15 +31,15 @@ const reasons = [
   },
   {
     title: "Pinpoint Precision",
-    body: "Only the contaminant is removed — the substrate stays completely intact and undamaged.",
+    body: "Only the contaminant is removed — the substrate stays completely intact and undamaged. No grinding, no abrasion, no surface loss.",
   },
   {
     title: "Mobile On-Site",
-    body: "We come to you. Portable equipment means minimal disruption to your day-to-day operations.",
+    body: "We come to you. Portable equipment means minimal disruption and no need to transport assets off-site.",
   },
   {
-    title: "Broad Compatibility",
-    body: "Steel, concrete, aluminium, brick — we handle a wide range of surfaces and substrates.",
+    title: "End-to-End Service",
+    body: "From rust removal and surface preparation through to primer, topcoats, and even intumescent coatings — we manage the full cycle. In partnership with NZCPM, a specialist protective coatings contractor, we deliver a single, coordinated service from bare steel to finished system.",
   },
 ];
 
@@ -72,10 +72,9 @@ export default function Home() {
                 Leave no trace on the environment.
               </h1>
               <p className="mt-6 max-w-md text-[15px] leading-7 text-white/85">
-                We remove rust, graffiti, and surface contaminants using
-                advanced laser technology — no chemicals, no damage. New
-                Zealand&apos;s trusted eco-friendly cleaning solution for
-                industrial, commercial, and public facilities.
+                We remove rust, corrosion, and surface contaminants using
+                advanced laser technology — no chemicals, no damage.
+                Auckland-based, servicing industrial, commercial, and infrastructure projects across New Zealand.
               </p>
               <div className="mt-8 flex items-center gap-6 text-[11px] font-bold uppercase tracking-[0.2em]">
                 <a
@@ -86,7 +85,7 @@ export default function Home() {
                 </a>
                 <a
                   href="#services"
-                  className="border-b border-white/40 pb-1 text-white/80 hover:text-white hover:border-white"
+                  className="border-b border-white pb-1 text-white hover:text-brand-light hover:border-[#f5c79a]"
                 >
                   View Our Services
                 </a>
@@ -100,16 +99,16 @@ export default function Home() {
       <section id="services" className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-start">
-            <div className="max-w-xl">
+            <div className="max-w-3xl">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
                 Services
               </p>
               <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
                 What We Do
               </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-muted">
+              <p className="mt-5 text-[15px] leading-7 text-muted">
                 Precise, eco-friendly laser technology for a wide range of surfaces and industries.<br />
-                From rust removal to graffiti and industrial prep — one tool, no chemicals.
+                From rust removal to vehicle underbody treatment and industrial prep — one tool, no chemicals.
               </p>
             </div>
           </div>
@@ -257,11 +256,10 @@ export default function Home() {
       <section>
         <div className="pt-16 pb-24">
         <div className="border-y border-border">
-          <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-y-8 px-8 py-14 text-center md:grid-cols-4">
+          <div className="mx-auto grid max-w-[1280px] grid-cols-3 px-8 py-14 text-center">
             {[
-              ["200+", "Projects Completed"],
+              ["100+", "Projects Completed"],
               ["50+", "Corporate Clients"],
-              ["5+", "Years in Operation"],
               ["NZ-wide", "Service Coverage"],
             ].map(([num, label]) => (
               <div key={label}>
@@ -309,10 +307,6 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="mx-auto mt-10 max-w-2xl text-[15px] leading-7 text-muted">
-            Working alongside trusted partners to provide exceptional painting
-            and fire protection solutions.
-          </p>
         </div>
       </section>
 
