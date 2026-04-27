@@ -113,10 +113,9 @@ export default function Home() {
               <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
                 What We Do
               </h2>
-              <p className="mt-5 max-w-lg text-[15px] leading-7 text-muted">
-                Precise, eco-friendly laser technology for a wide range of
-                surfaces and industries. From rust removal to graffiti and
-                industrial prep — one tool, no chemicals.
+              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-muted">
+                Precise, eco-friendly laser technology for a wide range of surfaces and industries.<br />
+                From rust removal to graffiti and industrial prep — one tool, no chemicals.
               </p>
             </div>
           </div>

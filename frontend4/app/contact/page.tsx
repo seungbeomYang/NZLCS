@@ -98,8 +98,7 @@ export default function ContactPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
-          <p className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-            <span aria-hidden className="inline-block h-px w-8 bg-brand" />
+          <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             Contact
           </p>
           <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
@@ -197,9 +196,8 @@ export default function ContactPage() {
           {/* RIGHT — Direct Contact box */}
           <div className="px-8 py-24 lg:pl-0">
             <aside className="border border-border bg-surface p-8 lg:p-10">
-              <p className="mb-8 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-                <span aria-hidden className="inline-block h-px w-8 bg-brand" />
-                // Direct Contact
+              <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+                Direct Contact
               </p>
 
               <dl className="divide-y divide-border">
@@ -239,8 +237,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
             <div>
-              <p className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-                <span aria-hidden className="inline-block h-px w-8 bg-brand" />
+              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
                 Visit Us
               </p>
               <h2 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
