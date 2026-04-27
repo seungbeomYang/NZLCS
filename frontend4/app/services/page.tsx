@@ -271,7 +271,7 @@ function ServiceSection({ service }: { service: ServiceData }) {
   const num = eyebrow.replace("SERVICE ", "");
 
   return (
-    <section id={service.id} className="border-t border-border">
+    <section id={service.id} className="border-t border-border" style={{ scrollMarginTop: "24px" }}>
 
       {/* ── Header row ─────────────────────────────────────────────── */}
       <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-14">

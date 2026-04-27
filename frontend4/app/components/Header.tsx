@@ -16,7 +16,6 @@ export default function Header() {
     const update = () => {
       const y = window.scrollY;
       setScrolled(y > 40);
-      // Only hide once we're past the hero a bit
       if (y > lastY && y > 120) {
         setHidden(true);
       } else if (y < lastY) {

@@ -9,14 +9,17 @@ const services = [
   {
     title: "Rust & Oxide Removal",
     body: "Precision laser removal of rust and oxidation from steel structures, pipelines, bridges, and machinery — without damaging the substrate.",
+    href: "/services#rust-oxide-removal",
   },
   {
     title: "Graffiti Removal",
     body: "Fast, chemical-free graffiti removal from public infrastructure, building facades, and commercial properties. Safe for repeated use.",
+    href: "/services#vehicle-rust-removal",
   },
   {
     title: "Industrial Surface Prep",
     body: "Pre-paint surface preparation, coating removal, and weld cleanup for manufacturing and industrial sites across New Zealand.",
+    href: "/services#industrial-surface-prep",
   },
 ];
 
@@ -139,7 +142,7 @@ export default function Home() {
                   {s.body}
                 </p>
                 <a
-                  href="#"
+                  href={s.href}
                   className="mt-5 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-brand hover:text-brand-dark"
                 >
                   Learn More →
