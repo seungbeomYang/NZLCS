@@ -205,7 +205,12 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="h-24" aria-hidden />    
+        <div className="border-t border-border">
+          <div className="mx-auto max-w-[1280px] px-8 py-24 text-center">
+            <p className="type-eyebrow mb-4">Testimonials</p>
+            <h2 className="type-h2">Testimonial</h2>
+          </div>
+        </div>
       </section>
 
       {/* FREE QUOTE INQUIRY — form left, image right */}
