@@ -19,19 +19,19 @@ type Size = {
 const SIZES: Record<Variant, Size> = {
   // Blog body — matches former <p> style.
   default: {
-    paragraph: "mb-6 text-[15px] leading-7 text-muted last:mb-0",
-    h2: "mt-10 mb-4 font-sans text-2xl font-bold leading-tight text-foreground",
+    paragraph: "mb-6 type-body last:mb-0",
+    h2: "mt-10 mb-4 type-h3 text-foreground",
     h3: "mt-8 mb-3 font-sans text-xl font-bold leading-tight text-foreground",
     blockquote:
-      "my-8 border-l-2 border-brand pl-6 text-[15px] italic leading-7 text-foreground",
+      "my-8 border-l-2 border-brand pl-6 type-body italic text-foreground",
   },
   // Project "About" body — larger.
   large: {
-    paragraph: "text-[17px] leading-8 text-muted",
-    h2: "mt-8 mb-4 font-sans text-2xl font-bold leading-tight text-foreground",
+    paragraph: "type-body-lg",
+    h2: "mt-8 mb-4 type-h3 text-foreground",
     h3: "mt-6 mb-3 font-sans text-xl font-bold leading-tight text-foreground",
     blockquote:
-      "my-6 border-l-2 border-brand pl-6 text-[17px] italic leading-8 text-foreground",
+      "my-6 border-l-2 border-brand pl-6 type-body-lg italic text-foreground",
   },
 };
 
@@ -90,7 +90,7 @@ function buildComponents(size: Size): PortableTextComponents {
               />
             </div>
             {v.alt ? (
-              <figcaption className="mt-3 text-[12px] text-muted">
+              <figcaption className="mt-3 type-caption">
                 {v.alt}
               </figcaption>
             ) : null}

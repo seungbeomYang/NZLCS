@@ -59,13 +59,13 @@ export default async function GalleryPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Project Gallery
           </p>
-          <h1 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
+          <h1 className="type-h1">
             Before &amp; After — Results Speak for Themselves.
           </h1>
-          <p className="mt-6 max-w-2xl text-[15px] leading-7 text-muted">
+          <p className="mt-6 max-w-2xl type-body">
             Real results from real jobs across New Zealand. Browse by service
             type or scroll through our recent project work.
           </p>
@@ -77,19 +77,19 @@ export default async function GalleryPage() {
       {/* BOTTOM CTA */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 py-24 text-center">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Have a similar project?
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Send us a photo of the job.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mx-auto mt-5 max-w-xl type-body">
             We&apos;ll assess the surface, scope the work, and respond within
             two business days. No obligation — just a straight answer.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
+            className="mt-8 inline-block bg-brand px-10 py-4 type-label text-on-brand hover:bg-brand-light"
           >
             Get a Free Quote →
           </Link>

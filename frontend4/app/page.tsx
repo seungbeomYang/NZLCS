@@ -73,17 +73,17 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 z-10">
           <div className="mx-auto max-w-[1280px] px-8 pb-20">
             <div className="max-w-xl text-white">
-              <h1 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
+              <h1 className="type-h1">
                 Clean with laser precision.
                 <br />
                 Leave no trace on the environment.
               </h1>
-              <p className="mt-6 max-w-md text-[15px] leading-7 text-white/85">
+              <p className="mt-6 max-w-md type-body text-white/85">
                 We remove rust, corrosion, and surface contaminants using
                 advanced laser technology — no chemicals, no damage.
                 Auckland-based, servicing industrial, commercial, and infrastructure projects across New Zealand.
               </p>
-              <div className="mt-8 flex items-center gap-6 text-[11px] font-bold uppercase tracking-[0.2em]">
+              <div className="mt-8 flex items-center gap-6 type-label">
                 <a
                   href="#contact"
                   className="border-b border-white pb-1 text-white hover:text-brand-light hover:border-[#f5c79a]"
@@ -107,13 +107,13 @@ export default function Home() {
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-start">
             <div className="max-w-3xl">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+              <p className="mb-3 type-eyebrow">
                 Services
               </p>
-              <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+              <h2 className="type-h2">
                 What We Do
               </h2>
-              <p className="mt-5 text-[15px] leading-7 text-muted">
+              <p className="mt-5 type-body">
                 Precise, eco-friendly laser technology for a wide range of surfaces and industries.<br />
                 From rust removal to vehicle underbody treatment and industrial prep — one tool, no chemicals.
               </p>
@@ -140,13 +140,13 @@ export default function Home() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
-                <h3 className="font-sans text-2xl font-bold">{s.title}</h3>
-                <p className="mt-3 text-[14px] leading-7 text-muted">
+                <h3 className="type-h3">{s.title}</h3>
+                <p className="mt-3 type-body-sm">
                   {s.body}
                 </p>
                 <a
                   href={s.href}
-                  className="mt-5 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-brand hover:text-brand-dark"
+                  className="mt-5 inline-block type-label text-brand hover:text-brand-dark"
                 >
                   Learn More →
                 </a>
@@ -160,13 +160,13 @@ export default function Home() {
       <section id="about">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="max-w-2xl">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="mb-3 type-eyebrow">
               Why NZLCS
             </p>
-            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="type-h2">
               Why choose us?
             </h2>
-            <p className="mt-5 max-w-xl text-[15px] leading-7 text-muted">
+            <p className="mt-5 max-w-xl type-body">
               Laser Cleaning isn't just a newer tool — it's a fundamentally better approach.
               <br />
               Here's what sets us apart from traditional methods.
@@ -194,8 +194,8 @@ export default function Home() {
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
                   />
                 </div>
-                <h3 className="font-sans text-2xl font-bold">{r.title}</h3>
-                <p className="mt-3 text-[14px] leading-7 text-muted">
+                <h3 className="type-h3">{r.title}</h3>
+                <p className="mt-3 type-body-sm">
                   {r.body}
                 </p>
               </div>
@@ -209,13 +209,13 @@ export default function Home() {
       <section id="contact" className="border-t border-border">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-2">
           <div className="px-8 py-24 md:pr-14">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="mb-3 type-eyebrow">
               Free Quote Inquiry
             </p>
-            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="type-h2">
               Request a Quote
             </h2>
-            <p className="mt-5 max-w-md text-[14px] leading-7 text-muted">
+            <p className="mt-5 max-w-md type-body-sm">
               Drop us a line below and we&apos;ll get back to you fast. Send a
               photo of the site and we&apos;ll quote it within two business
               days.
@@ -239,13 +239,13 @@ export default function Home() {
       {/* MAP — office location */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12 text-center">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Visit Us
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Our Office
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mx-auto mt-5 max-w-xl type-body">
             Based in Auckland, serving industrial and commercial sites
             across New Zealand.
           </p>
@@ -276,10 +276,10 @@ export default function Home() {
               ["NZ-wide", "Service Coverage"],
             ].map(([num, label]) => (
               <div key={label}>
-                <div className="font-sans text-4xl font-bold text-brand md:text-5xl">
+                <div className="type-stat">
                   {num}
                 </div>
-                <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
+                <div className="mt-2 type-form-label text-muted">
                   {label}
                 </div>
               </div>
@@ -290,10 +290,10 @@ export default function Home() {
 
         {/* BRANDS — heading above, logos center, subtitle below */}
         <div className="mx-auto max-w-[1280px] px-8 pb-24 text-center">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Trusted Partners
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             We work with the best brands
           </h2>
 
@@ -334,36 +334,36 @@ export default function Home() {
               height={96}
               className="h-24 w-auto"
             />
-            <p className="mt-4 text-[12px] leading-6 text-muted">
+            <p className="mt-4 type-caption">
               NZ Laser Cleaning Solutions — New Zealand&apos;s eco-friendly
               laser cleaning specialists.
             </p>
           </div>
           <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <h5 className="mb-4 type-label">
               Services
             </h5>
-            <ul className="space-y-2 text-[13px] text-muted">
+            <ul className="space-y-2 type-caption">
               <li>Rust Removal</li>
               <li>Vehicle Body Prep</li>
               <li>Industrial Prep</li>
             </ul>
           </div>
           <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <h5 className="mb-4 type-label">
               Company
             </h5>
-            <ul className="space-y-2 text-[13px] text-muted">
+            <ul className="space-y-2 type-caption">
               <li>About Us</li>
               <li>Gallery</li>
               <li>Contact</li>
             </ul>
           </div>
           <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <h5 className="mb-4 type-label">
               Contact
             </h5>
-            <ul className="space-y-2 text-[13px] text-muted">
+            <ul className="space-y-2 type-caption">
               <li>Auckland, New Zealand</li>
               <li>info@nzlcs.co.nz</li>
               <li>021 419 933</li>
@@ -388,7 +388,7 @@ export default function Home() {
           </div>
         </div>
         <div className="bg-brand text-on-brand">
-          <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] md:flex-row">
+          <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 type-label md:flex-row">
             <span>© {new Date().getFullYear()} NZLCS. All rights reserved.</span>
             <div className="flex gap-6">
               <a href="#">Privacy</a>

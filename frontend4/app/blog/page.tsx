@@ -56,13 +56,13 @@ export default async function BlogPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Blog &amp; Resources
           </p>
-          <h1 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
+          <h1 className="type-h1">
             Insights, Updates &amp; Industry Know-How
           </h1>
-          <p className="mt-6 max-w-2xl text-[15px] leading-7 text-muted">
+          <p className="mt-6 max-w-2xl type-body">
             Technical articles, project case studies, and practical advice from
             New Zealand&apos;s laser cleaning specialists.
           </p>
@@ -74,19 +74,19 @@ export default async function BlogPage() {
       {/* BOTTOM CTA */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 py-24 text-center">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Ready To Start?
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Get a free quote.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mx-auto mt-5 max-w-xl type-body">
             Tell us about your site, your surfaces, and your timeline. We&apos;ll
             come back with a clear scope, a fixed price, and a date.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
+            className="mt-8 inline-block bg-brand px-10 py-4 type-label text-on-brand hover:bg-brand-light"
           >
             Request a Quote
           </Link>

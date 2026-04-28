@@ -57,11 +57,11 @@ export default function Header() {
             priority
             className="h-20 w-auto"
           />
-          <span className="text-[18px] font-bold uppercase tracking-[0.15em] text-foreground/70 leading-none">
+          <span className="type-logo text-foreground leading-none">
             NZLCS
           </span>
         </a>
-        <nav className="hidden items-center gap-9 text-[13px] font-bold uppercase tracking-[0.18em] text-foreground md:flex">
+        <nav className="hidden items-center gap-9 type-nav text-foreground md:flex">
           <a href="/" className="hover:text-brand-light">Home</a>
           <a href="/services" className="hover:text-brand-light">Services</a>
           <a href="/about" className="hover:text-brand-light">About</a>

@@ -75,14 +75,14 @@ function ValueCard({ card }: { card: ValueData }) {
 
       {/* Number — category */}
       <p
-        className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]"
+        className="mb-4 type-label"
         style={{ color: accentColor }}
       >
         {number} — {category}
       </p>
 
       <h3 className="font-sans text-xl font-bold leading-snug">{title}</h3>
-      <p className="mt-3 text-[13px] leading-6 text-muted">{desc}</p>
+      <p className="mt-3 type-caption">{desc}</p>
     </div>
   );
 }
@@ -113,15 +113,15 @@ export default function AboutPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
-          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-5 type-eyebrow">
             About NZLCS
           </p>
-          <h1 className="max-w-5xl font-sans text-5xl font-bold leading-[1.05] md:text-[64px]">
+          <h1 className="max-w-5xl type-h1">
             Built by Industry Veterans.
             <br />
             Powered by Laser Technology.
           </h1>
-          <p className="mt-8 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mt-8 max-w-xl type-body">
             NZLCS was founded by industry professionals with deep backgrounds
             in construction, coatings, and infrastructure — people who
             understood the limitations of traditional cleaning methods and
@@ -135,13 +135,13 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-2">
           {/* Text */}
           <div className="px-8 py-20 md:border-r border-border md:pr-14">
-            <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="mb-5 type-eyebrow">
               Our Story
             </p>
-            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="type-h2">
               Built on 50+ years of industry experience in NZ
             </h2>
-            <div className="mt-8 space-y-5 text-[14px] leading-7 text-muted">
+            <div className="mt-8 space-y-5 type-body-sm">
               <p>
                 NZLCS was established by three Auckland-based partners — BK,
                 Bob, and Dan — each with a strong construction background and
@@ -179,10 +179,10 @@ export default function AboutPage() {
       {/* ── OUR VALUES ────────────────────────────────────────────────────────── */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             What We Stand For
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Our values.
           </h2>
         </div>
@@ -193,7 +193,7 @@ export default function AboutPage() {
               <ValueCard key={v.number} card={v} />
             ))}
           </div>
-          <p className="mt-8 text-center text-[13px] italic text-muted/60">
+          <p className="mt-8 text-center type-caption">
             These four principles guide every project we take on — from first
             assessment through to final QA.
           </p>
@@ -204,13 +204,13 @@ export default function AboutPage() {
       {/* ── TEAM / EXPERTISE ──────────────────────────────────────────────────── */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-24 text-center">
-          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-5 type-eyebrow">
             Our Expertise
           </p>
-          <h2 className="mx-auto max-w-2xl font-sans text-5xl font-bold leading-tight md:text-6xl">
+          <h2 className="mx-auto max-w-2xl type-h2">
             Industry knowledge you can rely on.
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-[18px] leading-8 text-muted">
+          <p className="mx-auto mt-8 max-w-2xl type-body">
             Our team&apos;s background spans construction estimating, quantity
             surveying, protective coatings, and project delivery. We
             don&apos;t just operate the equipment — we understand the broader

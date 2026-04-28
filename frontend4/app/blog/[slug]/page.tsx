@@ -97,23 +97,23 @@ export default async function PostPage(props: PageProps<"/blog/[slug]">) {
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
             <div>
-              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+              <p className="mb-4 type-eyebrow">
                 Blog
               </p>
-              <h1 className="font-sans text-4xl font-bold leading-[1.1] md:text-5xl">
+              <h1 className="type-h1">
                 {post.title}
               </h1>
 
               <dl className="mt-10 border-y border-border">
                 <div className="grid grid-cols-[110px_1fr] items-center border-b border-border py-4">
-                  <dt className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+                  <dt className="type-eyebrow text-muted">
                     Tags
                   </dt>
                   <dd className="flex flex-wrap gap-x-3 gap-y-2">
                     {tags.map((t) => (
                       <span
                         key={t}
-                        className="text-[11px] font-bold uppercase tracking-[0.22em] text-foreground"
+                        className="type-eyebrow text-foreground"
                       >
                         [{t}]
                       </span>
@@ -121,29 +121,29 @@ export default async function PostPage(props: PageProps<"/blog/[slug]">) {
                   </dd>
                 </div>
                 <div className="grid grid-cols-[110px_1fr] items-center border-b border-border py-4">
-                  <dt className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+                  <dt className="type-eyebrow text-muted">
                     Published
                   </dt>
-                  <dd className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground">
+                  <dd className="type-form-label text-foreground">
                     {formatLongDate(post.date)}
                   </dd>
                 </div>
                 {post.author ? (
                   <div className="grid grid-cols-[110px_1fr] items-center border-b border-border py-4">
-                    <dt className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+                    <dt className="type-eyebrow text-muted">
                       Author
                     </dt>
-                    <dd className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground">
+                    <dd className="type-form-label text-foreground">
                       {post.author}
                     </dd>
                   </div>
                 ) : null}
                 {post.readTime ? (
                   <div className="grid grid-cols-[110px_1fr] items-center py-4">
-                    <dt className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+                    <dt className="type-eyebrow text-muted">
                       Read Time
                     </dt>
-                    <dd className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground">
+                    <dd className="type-form-label text-foreground">
                       {post.readTime}
                     </dd>
                   </div>
@@ -152,7 +152,7 @@ export default async function PostPage(props: PageProps<"/blog/[slug]">) {
 
               <Link
                 href="/blog"
-                className="mt-8 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-brand hover:text-brand-dark"
+                className="mt-8 inline-block type-label text-brand hover:text-brand-dark"
               >
                 ← Back to blog
               </Link>
@@ -189,10 +189,10 @@ export default async function PostPage(props: PageProps<"/blog/[slug]">) {
       {related.length > 0 && (
         <section className="border-t border-border">
           <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="mb-3 type-eyebrow">
               Related Articles
             </p>
-            <h2 className="font-sans text-3xl font-bold leading-tight md:text-4xl">
+            <h2 className="type-h2-sm">
               Keep reading.
             </h2>
           </div>
@@ -209,19 +209,19 @@ export default async function PostPage(props: PageProps<"/blog/[slug]">) {
       {/* BOTTOM CTA */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 py-24 text-center">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Ready To Start?
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Get a free quote.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mx-auto mt-5 max-w-xl type-body">
             Tell us about your site, your surfaces, and your timeline. We&apos;ll
             come back with a clear scope, a fixed price, and a date.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
+            className="mt-8 inline-block bg-brand px-10 py-4 type-label text-on-brand hover:bg-brand-light"
           >
             Request a Quote
           </Link>

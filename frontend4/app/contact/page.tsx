@@ -92,14 +92,14 @@ export default function ContactPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
-          <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-6 type-eyebrow">
             Contact
           </p>
           <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
-            <h1 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="type-h1">
               Get in touch.
             </h1>
-            <p className="max-w-md text-[15px] leading-7 text-muted md:mt-2">
+            <p className="max-w-md type-body md:mt-2">
               Tell us about your site, your surfaces, and your timeline. We&apos;ll
               come back with a clear scope, a fixed price, and a date — usually
               within two business days.
@@ -110,31 +110,25 @@ export default function ContactPage() {
 
       {/* QUOTE REQUEST + DIRECT CONTACT */}
       <section className="border-t border-border">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-[1.4fr_1fr]">
-          {/* LEFT — Free Quote Inquiry (matches homepage) */}
-          <div className="px-8 py-24 lg:pr-14">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-[1fr_1px_1fr]">
+          {/* LEFT — heading, description, direct contact */}
+          <div className="px-8 py-24 lg:pr-20">
+            <p className="mb-3 type-eyebrow">
               Free Quote Inquiry
             </p>
-            <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="type-h2">
               Request a Quote
             </h2>
-            <p className="mt-5 max-w-md text-[14px] leading-7 text-muted">
+            <p className="mt-5 max-w-md type-body-sm">
               Drop us a line below and we&apos;ll get back to you fast. Send a
               photo of the site and we&apos;ll quote it within two business
               days.
             </p>
 
-            <QuoteForm formId="quote-upload-contact" />
-          </div>
-
-          {/* RIGHT — Direct Contact box */}
-          <div className="px-8 py-24 lg:pl-0">
-            <aside className="border border-border bg-surface p-8 lg:p-10">
-              <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <aside className="mt-12 border border-border bg-surface p-8">
+              <p className="mb-8 type-eyebrow">
                 Direct Contact
               </p>
-
               <dl className="divide-y divide-border">
                 {directContacts.map((c) => (
                   <div
@@ -142,10 +136,10 @@ export default function ContactPage() {
                     className="grid grid-cols-[28px_120px_1fr] items-start gap-4 py-5 first:pt-0 last:pb-0"
                   >
                     <span className="mt-0.5 text-muted" aria-hidden>{c.icon}</span>
-                    <dt className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+                    <dt className="mt-0.5 type-eyebrow text-muted">
                       {c.label}
                     </dt>
-                    <dd className="text-[15px] leading-7 text-foreground">
+                    <dd className="type-body text-foreground">
                       {c.href ? (
                         <a
                           href={c.href}
@@ -164,6 +158,14 @@ export default function ContactPage() {
               </dl>
             </aside>
           </div>
+
+          {/* DIVIDER */}
+          <div className="hidden lg:block my-24 border-l border-border" aria-hidden />
+
+          {/* RIGHT — form */}
+          <div className="px-8 py-24 lg:pl-20">
+            <QuoteForm formId="quote-upload-contact" formClassName="" />
+          </div>
         </div>
       </section>
 
@@ -172,14 +174,14 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
           <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
             <div>
-              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+              <p className="mb-6 type-eyebrow">
                 Visit Us
               </p>
-              <h2 className="font-sans text-5xl font-bold leading-[1.05] md:text-6xl">
+              <h2 className="type-h2">
                 Our Office
               </h2>
             </div>
-            <p className="max-w-md text-[15px] leading-7 text-muted md:mt-2">
+            <p className="max-w-md type-body md:mt-2">
               Based in Auckland, serving industrial and commercial sites
               across New Zealand.
             </p>

@@ -97,24 +97,24 @@ export default async function ProjectPage(
         />
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
           <div className="mb-8 flex flex-wrap items-center gap-2">
-            <span className="bg-brand px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-on-brand">
+            <span className="bg-brand px-3 py-1.5 type-badge text-on-brand">
               {project.category}
             </span>
-            <span className="border border-border px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+            <span className="border border-border px-3 py-1.5 type-badge text-muted">
               {project.year}
             </span>
-            <span className="border border-border px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+            <span className="border border-border px-3 py-1.5 type-badge text-muted">
               {project.location}
             </span>
           </div>
 
-          <h1 className="max-w-4xl font-sans text-4xl font-bold leading-[1.1] md:text-6xl">
+          <h1 className="max-w-4xl type-h1">
             {project.title}
           </h1>
 
           <Link
             href="/gallery"
-            className="mt-8 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-brand hover:text-brand-dark"
+            className="mt-8 inline-block type-label text-brand hover:text-brand-dark"
           >
             ← Back to gallery
           </Link>
@@ -125,10 +125,10 @@ export default async function ProjectPage(
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-12 pb-16">
           <div className="mb-6 flex items-baseline justify-between">
-            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="type-eyebrow">
               Before / After
             </p>
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted">
+            <p className="type-label text-muted">
               Drag ⇄ to compare
             </p>
           </div>
@@ -142,14 +142,14 @@ export default async function ProjectPage(
           <div className="mx-auto max-w-[1280px] px-8 py-20">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_minmax(0,420px)] md:gap-16">
               <div className="border-l-2 border-brand pl-6 md:pl-8">
-                <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+                <p className="mb-6 type-eyebrow">
                   About This Project
                 </p>
                 <div className="space-y-6">
                   {hasBody ? (
                     <PortableText value={project.body} variant="large" />
                   ) : (
-                    <p className="text-[17px] leading-8 text-muted">
+                    <p className="type-body-lg">
                       {project.summary}
                     </p>
                   )}
@@ -158,7 +158,7 @@ export default async function ProjectPage(
 
               {hasSpecs && project.specs ? (
                 <aside className="border border-border bg-surface p-8">
-                  <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+                  <p className="mb-6 type-eyebrow">
                     Project Specs
                   </p>
                   <dl className="divide-y divide-border [&_>div]:py-4 first:[&_>div]:pt-0 last:[&_>div]:pb-0">
@@ -167,10 +167,10 @@ export default async function ProjectPage(
                         key={s.label}
                         className="flex items-baseline justify-between gap-6"
                       >
-                        <dt className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+                        <dt className="type-eyebrow text-muted">
                           {s.label}
                         </dt>
-                        <dd className="text-right text-[13px] text-foreground/85">
+                        <dd className="text-right type-caption text-foreground/85">
                           {s.value}
                         </dd>
                       </div>
@@ -187,7 +187,7 @@ export default async function ProjectPage(
       {project.morePhotos && project.morePhotos.length > 0 && (
         <section className="border-t border-border">
           <div className="mx-auto max-w-[1280px] px-8 pt-16 pb-16">
-            <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="mb-8 type-eyebrow">
               More Photos
             </p>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -211,7 +211,7 @@ export default async function ProjectPage(
                     ) : (
                       <div className="absolute inset-3 border border-dashed border-border" />
                     )}
-                    <span className="absolute bottom-4 left-4 bg-background/80 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-foreground">
+                    <span className="absolute bottom-4 left-4 bg-background/80 px-2 py-1 type-badge text-foreground">
                       {photo.label}
                     </span>
                   </div>
@@ -228,16 +228,16 @@ export default async function ProjectPage(
           <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-12">
             <div className="flex items-baseline justify-between gap-6">
               <div>
-                <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+                <p className="mb-3 type-eyebrow">
                   Related Work
                 </p>
-                <h2 className="font-sans text-3xl font-bold leading-tight md:text-4xl">
+                <h2 className="type-h2-sm">
                   Similar projects.
                 </h2>
               </div>
               <Link
                 href="/gallery"
-                className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand hover:text-brand-dark"
+                className="type-label text-brand hover:text-brand-dark"
               >
                 ← Back to Gallery
               </Link>
@@ -256,19 +256,19 @@ export default async function ProjectPage(
       {/* BOTTOM CTA */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 py-24 text-center">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-3 type-eyebrow">
             Have a similar project?
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Send us a photo of the job.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mx-auto mt-5 max-w-xl type-body">
             We&apos;ll assess the surface, scope the work, and respond within
             two business days. No obligation — just a straight answer.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light"
+            className="mt-8 inline-block bg-brand px-10 py-4 type-label text-on-brand hover:bg-brand-light"
           >
             Get a Free Quote →
           </Link>

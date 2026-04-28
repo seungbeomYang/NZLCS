@@ -53,7 +53,7 @@ export default function BlogList({
         <div className="mx-auto max-w-[1280px] px-8 py-12">
           {visible.length === 0 ? (
             <div className="py-24 text-center">
-              <p className="text-[14px] leading-7 text-muted">
+              <p className="type-body-sm">
                 No posts in this category yet.
               </p>
             </div>
@@ -79,22 +79,22 @@ export function BlogCard({ post }: { post: PostCard }) {
       <BlogCoverImage post={post} variant="card" />
       <div className="flex flex-1 flex-col px-6 py-6">
         <div className="mb-4 flex items-center gap-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <span className="type-eyebrow">
             {post.category}
           </span>
           {post.readTime ? (
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+            <span className="type-eyebrow text-muted">
               {post.readTime}
             </span>
           ) : null}
         </div>
-        <h3 className="font-sans text-2xl font-bold leading-snug group-hover:text-brand">
+        <h3 className="type-h3 group-hover:text-brand">
           {post.title}
         </h3>
-        <p className="mt-3 flex-1 text-[14px] leading-7 text-muted">
+        <p className="mt-3 flex-1 type-body-sm">
           {post.excerpt}
         </p>
-        <span className="mt-6 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-foreground underline underline-offset-4 group-hover:text-brand">
+        <span className="mt-6 inline-block type-label text-foreground underline underline-offset-4 group-hover:text-brand">
           Read article →
         </span>
       </div>
@@ -132,7 +132,7 @@ function BlogCoverImage({
   return (
     <div className={wrapperClass}>
       <div className="absolute inset-3 grid place-items-center border border-dashed border-border">
-        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+        <span className="type-eyebrow text-muted">
           Image
         </span>
       </div>
@@ -146,7 +146,7 @@ export function SimpleBlogCard({ post }: { post: PostCard }) {
     <Link href={`/blog/${post.slug}`} className="group block">
       <BlogCoverImage post={post} variant="standalone" />
       <div className="mt-5 mb-2 flex items-center gap-2">
-        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+        <span className="type-eyebrow">
           {post.category}
         </span>
         {post.readTime ? (
@@ -154,13 +154,13 @@ export function SimpleBlogCard({ post }: { post: PostCard }) {
             <span className="text-[11px] text-border" aria-hidden="true">
               ·
             </span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+            <span className="type-eyebrow text-muted">
               {post.readTime}
             </span>
           </>
         ) : null}
       </div>
-      <h3 className="font-sans text-2xl font-bold leading-snug group-hover:text-brand">
+      <h3 className="type-h3 group-hover:text-brand">
         {post.title}
       </h3>
     </Link>

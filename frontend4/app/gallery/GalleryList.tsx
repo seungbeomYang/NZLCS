@@ -53,7 +53,7 @@ export default function GalleryList({
         <div className="mx-auto max-w-[1280px] px-8 py-12">
           {visible.length === 0 ? (
             <div className="py-24 text-center">
-              <p className="text-[14px] leading-7 text-muted">
+              <p className="type-body-sm">
                 No projects in this category yet.
               </p>
             </div>
@@ -79,20 +79,20 @@ export function ProjectCardLink({ project }: { project: ProjectCard }) {
       <BeforeAfterPreview project={project} variant="card" />
       <div className="flex flex-1 flex-col px-6 py-6">
         <div className="mb-4 flex items-center gap-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <span className="type-eyebrow">
             {project.category}
           </span>
-          <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+          <span className="type-eyebrow text-muted">
             {project.location}
           </span>
         </div>
-        <h3 className="font-sans text-2xl font-bold leading-snug group-hover:text-brand">
+        <h3 className="type-h3 group-hover:text-brand">
           {project.title}
         </h3>
-        <p className="mt-3 flex-1 text-[14px] leading-7 text-muted">
+        <p className="mt-3 flex-1 type-body-sm">
           {project.summary}
         </p>
-        <span className="mt-6 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-foreground underline underline-offset-4 group-hover:text-brand">
+        <span className="mt-6 inline-block type-label text-foreground underline underline-offset-4 group-hover:text-brand">
           View project →
         </span>
       </div>
@@ -114,11 +114,11 @@ function BeforeAfterPreview({
 
   const labelEl =
     variant === "card" ? (
-      <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+      <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 type-eyebrow text-muted">
         Before / After
       </span>
     ) : (
-      <span className="absolute left-3 top-3 bg-background/80 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-foreground">
+      <span className="absolute left-3 top-3 bg-background/80 px-2.5 py-1.5 type-badge text-foreground">
         Before / After
       </span>
     );
@@ -181,17 +181,17 @@ export function SimpleProjectCard({ project }: { project: ProjectCard }) {
     <Link href={`/gallery/${project.slug}`} className="group block">
       <BeforeAfterPreview project={project} variant="tall" />
       <div className="mt-5 mb-2 flex items-center gap-2">
-        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+        <span className="type-eyebrow">
           {project.category}
         </span>
         <span className="text-[11px] text-border" aria-hidden="true">
           ·
         </span>
-        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+        <span className="type-eyebrow text-muted">
           {project.location}
         </span>
       </div>
-      <h3 className="font-sans text-2xl font-bold leading-snug group-hover:text-brand">
+      <h3 className="type-h3 group-hover:text-brand">
         {project.title}
       </h3>
     </Link>

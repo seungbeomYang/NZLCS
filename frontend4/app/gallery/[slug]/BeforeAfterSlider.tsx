@@ -63,7 +63,7 @@ export default function BeforeAfterSlider({ before, after }: Props) {
           backgroundImage: before ? `url(${before})` : undefined,
         }}
       >
-        <span className="absolute left-4 top-4 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground">
+        <span className="absolute left-4 top-4 bg-background/70 px-2 py-1 type-badge text-foreground">
           Before
         </span>
       </div>
@@ -79,13 +79,13 @@ export default function BeforeAfterSlider({ before, after }: Props) {
             backgroundImage: after ? `url(${after})` : undefined,
           }}
         />
-        <span className="absolute right-4 top-4 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground">
+        <span className="absolute right-4 top-4 bg-background/70 px-2 py-1 type-badge text-foreground">
           After
         </span>
       </div>
 
       {!before && !after && (
-        <span className="absolute bottom-4 right-4 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
+        <span className="absolute bottom-4 right-4 bg-background/70 px-2 py-1 type-badge text-muted">
           // Photo to be provided
         </span>
       )}

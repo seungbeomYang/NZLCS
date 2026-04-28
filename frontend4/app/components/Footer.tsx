@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const LOGO_SRC = "/logo-symbol-inverted.png";
 
@@ -14,39 +15,56 @@ export default function Footer() {
             height={96}
             className="h-24 w-auto"
           />
-          <p className="mt-4 text-[12px] leading-6 text-muted">
+          <p className="mt-4 type-caption">
             NZ Laser Cleaning Solutions — New Zealand&apos;s eco-friendly
             laser cleaning specialists.
           </p>
         </div>
         <div>
-          <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+          <h5 className="mb-4 type-label">
             Services
           </h5>
-          <ul className="space-y-2 text-[13px] text-muted">
-            <li>Rust Removal</li>
-            <li>Graffiti Removal</li>
-            <li>Industrial Prep</li>
+          <ul className="space-y-2 type-caption">
+            <li><Link href="/services" className="hover:text-brand-light transition-colors">Rust Removal</Link></li>
+            <li><Link href="/services" className="hover:text-brand-light transition-colors">Graffiti Removal</Link></li>
+            <li><Link href="/services" className="hover:text-brand-light transition-colors">Industrial Prep</Link></li>
           </ul>
         </div>
         <div>
-          <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+          <h5 className="mb-4 type-label">
             Company
           </h5>
-          <ul className="space-y-2 text-[13px] text-muted">
-            <li>About Us</li>
-            <li>Gallery</li>
-            <li>Contact</li>
+          <ul className="space-y-2 type-caption">
+            <li><Link href="/about" className="hover:text-brand-light transition-colors">About Us</Link></li>
+            <li><Link href="/gallery" className="hover:text-brand-light transition-colors">Gallery</Link></li>
+            <li><Link href="/contact" className="hover:text-brand-light transition-colors">Contact</Link></li>
           </ul>
         </div>
         <div>
-          <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
+          <h5 className="mb-4 type-label">
             Contact
           </h5>
-          <ul className="space-y-2 text-[13px] text-muted">
-            <li>Auckland, New Zealand</li>
-            <li>info@nzlcs.co.nz</li>
-            <li>021 419 933</li>
+          <ul className="space-y-2 type-caption">
+            <li>
+              <a
+                href="https://www.google.com/maps?q=Auckland,New+Zealand"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-light transition-colors"
+              >
+                Auckland, New Zealand
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@nzlcs.co.nz" className="hover:text-brand-light transition-colors">
+                info@nzlcs.co.nz
+              </a>
+            </li>
+            <li>
+              <a href="tel:+64214199933" className="hover:text-brand-light transition-colors">
+                021 419 933
+              </a>
+            </li>
           </ul>
           <div className="mt-4 flex gap-3">
             <a
@@ -67,7 +85,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="bg-brand text-on-brand">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] md:flex-row">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 type-label md:flex-row">
           <span>© {new Date().getFullYear()} NZLCS. All rights reserved.</span>
           <div className="flex gap-6">
             <a href="#">Privacy</a>

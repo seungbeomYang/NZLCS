@@ -11,7 +11,7 @@ const formFields = [
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export default function QuoteForm({ formId = "quote-upload" }: { formId?: string }) {
+export default function QuoteForm({ formId = "quote-upload", formClassName }: { formId?: string; formClassName?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -42,12 +42,12 @@ export default function QuoteForm({ formId = "quote-upload" }: { formId?: string
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} className="mt-10 space-y-5" noValidate>
+    <form ref={formRef} onSubmit={onSubmit} className={`space-y-5 ${formClassName ?? "mt-10"}`} noValidate>
       {formFields.map((f) => (
         <div key={f.name}>
           <label
             htmlFor={`qf-${f.name}`}
-            className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70"
+            className="mb-2 block type-form-label text-foreground/70"
           >
             {f.label} {f.required && <span className="text-brand">*</span>}
           </label>
@@ -65,7 +65,7 @@ export default function QuoteForm({ formId = "quote-upload" }: { formId?: string
       <div>
         <label
           htmlFor="qf-message"
-          className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70"
+          className="mb-2 block type-form-label text-foreground/70"
         >
           Message
         </label>
@@ -79,12 +79,12 @@ export default function QuoteForm({ formId = "quote-upload" }: { formId?: string
       </div>
 
       <div>
-        <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70">
+        <label className="mb-2 block type-form-label text-foreground/70">
           Upload
         </label>
         <label
           htmlFor={formId}
-          className="flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent/10 px-6 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-accent transition-colors hover:bg-accent hover:text-background"
+          className="flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent/10 px-6 py-4 type-label text-accent transition-colors hover:bg-accent hover:text-background"
         >
           <svg
             width="16"
@@ -116,7 +116,7 @@ export default function QuoteForm({ formId = "quote-upload" }: { formId?: string
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-3 inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand hover:bg-brand-light disabled:opacity-60"
+        className="mt-3 block w-full bg-brand px-10 py-4 type-label text-on-brand hover:bg-brand-light disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send Inquiry →"}
       </button>
@@ -124,13 +124,13 @@ export default function QuoteForm({ formId = "quote-upload" }: { formId?: string
       {status === "sent" && (
         <p
           role="status"
-          className="text-[13px] leading-6 text-accent"
+          className="type-caption text-accent"
         >
           Thanks — we&apos;ve got your inquiry and will be in touch within two business days.
         </p>
       )}
       {status === "error" && error && (
-        <p role="alert" className="text-[13px] leading-6 text-brand">
+        <p role="alert" className="type-caption text-brand">
           {error}
         </p>
       )}

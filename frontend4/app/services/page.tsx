@@ -219,7 +219,7 @@ function ApplicationCard({ label, icon: Icon }: Application) {
       <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand/10">
         <Icon size={22} strokeWidth={1.5} className="text-brand" aria-hidden />
       </div>
-      <p className="text-[12px] font-bold leading-5 text-foreground/85">{label}</p>
+      <p className="type-caption font-bold text-foreground/85">{label}</p>
     </div>
   );
 }
@@ -236,7 +236,7 @@ function BenefitCard({ title, desc }: Benefit) {
       />
       <div>
         <h4 className="font-sans text-[13px] font-bold leading-snug">{title}</h4>
-        <p className="mt-1.5 text-[12px] leading-5 text-muted">{desc}</p>
+        <p className="mt-1.5 type-caption">{desc}</p>
       </div>
     </div>
   );
@@ -250,14 +250,14 @@ function ServiceSection({ service }: { service: ServiceData }) {
 
       {/* ── Header row ─────────────────────────────────────────────── */}
       <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-14">
-        <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+        <p className="mb-3 type-eyebrow">
           {eyebrow}
         </p>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             {title}
           </h2>
-          <p className="self-end text-[14px] leading-7 text-muted md:pt-3">
+          <p className="self-end type-body-sm md:pt-3">
             {intro}
           </p>
         </div>
@@ -284,10 +284,10 @@ function ServiceSection({ service }: { service: ServiceData }) {
           <div
             className={`px-8 py-14 ${imageLeft ? "md:order-last" : "md:order-first"}`}
           >
-            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <p className="mb-4 type-eyebrow">
               How It Works
             </p>
-            <p className="text-[14px] leading-7 text-muted">{howItWorks}</p>
+            <p className="type-body-sm">{howItWorks}</p>
           </div>
         </div>
       </div>
@@ -295,7 +295,7 @@ function ServiceSection({ service }: { service: ServiceData }) {
       {/* ── Ideal Applications ─────────────────────────────────────── */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-12 pb-2">
-          <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-6 type-eyebrow">
             Ideal Applications
           </p>
         </div>
@@ -311,7 +311,7 @@ function ServiceSection({ service }: { service: ServiceData }) {
       {/* ── Key Benefits ───────────────────────────────────────────── */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1280px] px-8 pt-12 pb-2">
-          <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-6 type-eyebrow">
             Key Benefits
           </p>
         </div>
@@ -357,13 +357,13 @@ export default function ServicesPage() {
         />
 
         <div className="relative z-10 mx-auto max-w-[1280px] px-8">
-          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-5 type-eyebrow">
             Our Services
           </p>
-          <h1 className="max-w-3xl font-sans text-5xl font-bold leading-[1.05] md:text-[64px]">
+          <h1 className="max-w-3xl type-h1">
             Setting a new standard for laser cleaning in New Zealand.
           </h1>
-          <p className="mt-8 max-w-xl text-[15px] leading-7 text-muted">
+          <p className="mt-8 max-w-xl type-body">
             From structural steel rust removal to vehicle underbody treatment and
             industrial surface prep — NZLCS delivers chemical-free, residue-free
             cleaning for projects across New Zealand.
@@ -374,7 +374,7 @@ export default function ServicesPage() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-brand transition-colors"
+                className="group flex items-center gap-3 type-label text-foreground/60 hover:text-brand transition-colors"
               >
                 <span className="text-brand">{s.eyebrow.replace("SERVICE ", "0")}</span>
                 <span className="h-px w-6 bg-border transition-colors group-hover:bg-brand" />
@@ -394,10 +394,10 @@ export default function ServicesPage() {
       <section className="border-t border-border">
         {/* Header */}
         <div className="mx-auto max-w-[1280px] px-8 pt-20 pb-14">
-          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-4 type-eyebrow">
             FAQ
           </p>
-          <h2 className="font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="type-h2">
             Frequently asked questions.
           </h2>
         </div>
@@ -413,20 +413,20 @@ export default function ServicesPage() {
       {/* ── BOTTOM CTA ────────────────────────────────────────────────────── */}
       <section className="border-t border-border bg-surface">
         <div className="mx-auto max-w-[1280px] px-8 py-24 text-center">
-          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+          <p className="mb-4 type-eyebrow">
             Get in Touch
           </p>
-          <h2 className="mx-auto max-w-2xl font-sans text-4xl font-bold leading-tight md:text-5xl whitespace-nowrap">
+          <h2 className="mx-auto max-w-2xl type-h2 whitespace-nowrap">
             Not sure which service you need?
           </h2>
-          <p className="mt-6 text-[15px] leading-7 text-muted">
+          <p className="mt-6 type-body">
             Send us a photo of the job and we&apos;ll assess it and respond within two business days.<br />
             No obligation — just a straight answer.
           </p>
           <div className="mt-10 flex items-center justify-center">
             <a
               href="/contact"
-              className="inline-block bg-brand px-10 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-on-brand transition-colors hover:bg-brand-light"
+              className="inline-block bg-brand px-10 py-4 type-label text-on-brand transition-colors hover:bg-brand-light"
             >
               Get a Free Quote →
             </a>
@@ -439,14 +439,14 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-10 px-8 py-20 md:grid-cols-4">
           <div>
             <Image src={LOGO_SRC} alt="NZLCS" width={96} height={96} className="h-24 w-auto" />
-            <p className="mt-4 text-[12px] leading-6 text-muted">
+            <p className="mt-4 type-caption">
               NZ Laser Cleaning Solutions — New Zealand&apos;s eco-friendly laser
               cleaning specialists.
             </p>
           </div>
           <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">Services</h5>
-            <ul className="space-y-2 text-[13px] text-muted">
+            <h5 className="mb-4 type-label">Services</h5>
+            <ul className="space-y-2 type-caption">
               {services.map((s) => (
                 <li key={s.id}>
                   <a href={`/services#${s.id}`} className="transition-colors hover:text-brand">
@@ -457,8 +457,8 @@ export default function ServicesPage() {
             </ul>
           </div>
           <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">Company</h5>
-            <ul className="space-y-2 text-[13px] text-muted">
+            <h5 className="mb-4 type-label">Company</h5>
+            <ul className="space-y-2 type-caption">
               {(
                 [
                   ["About Us", "/about"],
@@ -476,8 +476,8 @@ export default function ServicesPage() {
             </ul>
           </div>
           <div>
-            <h5 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">Contact</h5>
-            <ul className="space-y-2 text-[13px] text-muted">
+            <h5 className="mb-4 type-label">Contact</h5>
+            <ul className="space-y-2 type-caption">
               <li>Auckland, New Zealand</li>
               <li>
                 <a href="mailto:info@nzlcs.co.nz" className="transition-colors hover:text-brand">
@@ -509,7 +509,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="bg-brand text-on-brand">
-          <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] md:flex-row">
+          <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 type-label md:flex-row">
             <span>© {new Date().getFullYear()} NZLCS. All rights reserved.</span>
             <div className="flex gap-6">
               <a href="#">Privacy</a>

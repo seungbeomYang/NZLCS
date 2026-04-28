@@ -76,7 +76,7 @@ export default function ServicesAccordion() {
               aria-expanded={isOpen}
             >
               {/* Number badge */}
-              <span className="flex h-7 min-w-[2.5rem] flex-shrink-0 items-center justify-center bg-brand text-[10px] font-bold tracking-[0.1em] text-on-brand">
+              <span className="flex h-7 min-w-[2.5rem] flex-shrink-0 items-center justify-center bg-brand type-badge text-on-brand">
                 {item.number}
               </span>
 
@@ -107,7 +107,7 @@ export default function ServicesAccordion() {
               <div className="overflow-hidden">
                 <div className="space-y-4 pb-8 pl-[calc(2.5rem+1.25rem)]">
                   {item.paragraphs.map((p, pi) => (
-                    <p key={pi} className="text-[14px] leading-7 text-muted">
+                    <p key={pi} className="type-body-sm">
                       {p}
                     </p>
                   ))}
@@ -117,7 +117,7 @@ export default function ServicesAccordion() {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-brand"
+                        className="rounded-full bg-brand/10 px-3 py-1 type-badge text-brand"
                       >
                         {tag}
                       </span>
