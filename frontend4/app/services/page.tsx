@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
   Anchor,
   Building2,
@@ -26,14 +25,13 @@ import {
 import Header from "../components/Header";
 import ScrollToTop from "../components/ScrollToTop";
 import ServicesAccordion from "../components/ServicesAccordion";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Services — NZLCS | NZ Laser Cleaning Solutions",
   description:
     "Rust removal, vehicle underbody treatment, and industrial surface preparation using advanced laser technology — chemical-free and residue-free across New Zealand.",
 };
-
-const LOGO_SRC = "/logo-symbol-inverted.png";
 
 // ─── Data types ───────────────────────────────────────────────────────────────
 
@@ -434,90 +432,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── FOOTER ────────────────────────────────────────────────────────── */}
-      <footer className="border-t border-border">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-10 px-8 py-20 md:grid-cols-4">
-          <div>
-            <Image src={LOGO_SRC} alt="NZLCS" width={96} height={96} className="h-24 w-auto" />
-            <p className="mt-4 type-caption">
-              NZ Laser Cleaning Solutions — New Zealand&apos;s eco-friendly laser
-              cleaning specialists.
-            </p>
-          </div>
-          <div>
-            <h5 className="mb-4 type-label">Services</h5>
-            <ul className="space-y-2 type-caption">
-              {services.map((s) => (
-                <li key={s.id}>
-                  <a href={`/services#${s.id}`} className="transition-colors hover:text-brand">
-                    {s.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h5 className="mb-4 type-label">Company</h5>
-            <ul className="space-y-2 type-caption">
-              {(
-                [
-                  ["About Us", "/about"],
-                  ["Gallery", "/gallery"],
-                  ["Blog", "/blog"],
-                  ["Contact", "/contact"],
-                ] as [string, string][]
-              ).map(([label, href]) => (
-                <li key={label}>
-                  <a href={href} className="transition-colors hover:text-brand">
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h5 className="mb-4 type-label">Contact</h5>
-            <ul className="space-y-2 type-caption">
-              <li>Auckland, New Zealand</li>
-              <li>
-                <a href="mailto:info@nzlcs.co.nz" className="transition-colors hover:text-brand">
-                  info@nzlcs.co.nz
-                </a>
-              </li>
-              <li>
-                <a href="tel:021419933" className="transition-colors hover:text-brand">
-                  021 419 933
-                </a>
-              </li>
-            </ul>
-            <div className="mt-4 flex gap-3">
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="flex h-8 w-8 items-center justify-center border border-border text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-on-brand"
-              >
-                <span className="text-xs font-bold">f</span>
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-8 w-8 items-center justify-center border border-border text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-on-brand"
-              >
-                <span className="text-xs font-bold">IG</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="bg-brand text-on-brand">
-          <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-2 px-8 py-4 type-label md:flex-row">
-            <span>© {new Date().getFullYear()} NZLCS. All rights reserved.</span>
-            <div className="flex gap-6">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

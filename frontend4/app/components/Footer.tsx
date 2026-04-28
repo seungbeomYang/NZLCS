@@ -25,9 +25,9 @@ export default function Footer() {
             Services
           </h5>
           <ul className="space-y-2 type-caption">
-            <li><Link href="/services" className="hover:text-brand-light transition-colors">Rust Removal</Link></li>
-            <li><Link href="/services" className="hover:text-brand-light transition-colors">Graffiti Removal</Link></li>
-            <li><Link href="/services" className="hover:text-brand-light transition-colors">Industrial Prep</Link></li>
+            <li><Link href="/services#rust-oxide-removal" className="hover:text-brand-light transition-colors">Rust Removal</Link></li>
+            <li><Link href="/services#vehicle-rust-removal" className="hover:text-brand-light transition-colors">Vehicle Body Prep</Link></li>
+            <li><Link href="/services#industrial-surface-prep" className="hover:text-brand-light transition-colors">Industrial Prep</Link></li>
           </ul>
         </div>
         <div>
@@ -37,6 +37,7 @@ export default function Footer() {
           <ul className="space-y-2 type-caption">
             <li><Link href="/about" className="hover:text-brand-light transition-colors">About Us</Link></li>
             <li><Link href="/gallery" className="hover:text-brand-light transition-colors">Gallery</Link></li>
+            <li><Link href="/blog" className="hover:text-brand-light transition-colors">Blog</Link></li>
             <li><Link href="/contact" className="hover:text-brand-light transition-colors">Contact</Link></li>
           </ul>
         </div>
@@ -56,8 +57,13 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:info@nzlcs.co.nz" className="hover:text-brand-light transition-colors">
-                info@nzlcs.co.nz
+              <a href="mailto:info@nzlcs.com" className="hover:text-brand-light transition-colors">
+                info@nzlcs.com
+              </a>
+            </li>
+            <li>
+              <a href="mailto:dan@nzlcs.com" className="hover:text-brand-light transition-colors">
+                dan@nzlcs.com
               </a>
             </li>
             <li>

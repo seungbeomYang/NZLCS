@@ -193,7 +193,7 @@ export default function AboutPage() {
               <ValueCard key={v.number} card={v} />
             ))}
           </div>
-          <p className="mt-8 text-center type-caption">
+          <p className="mt-10 text-center type-body font-medium text-foreground border-t border-border pt-10 max-w-4xl mx-auto whitespace-nowrap">
             These four principles guide every project we take on — from first
             assessment through to final QA.
           </p>

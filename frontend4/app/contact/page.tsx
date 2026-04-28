@@ -33,8 +33,8 @@ const directContacts: DirectContact[] = [
     label: "Email",
     value: (
       <div className="space-y-1">
-        <a href="mailto:info@nzlcs.co.nz" className="block hover:text-brand-light">info@nzlcs.co.nz</a>
-        <a href="mailto:dan@nzlcs.co.nz" className="block hover:text-brand-light">dan@nzlcs.co.nz</a>
+        <a href="mailto:info@nzlcs.com" className="block hover:text-brand-light">info@nzlcs.com</a>
+        <a href="mailto:dan@nzlcs.com" className="block hover:text-brand-light">dan@nzlcs.com</a>
       </div>
     ),
     icon: (
