@@ -66,7 +66,7 @@ const services: ServiceData[] = [
     id: "rust-oxide-removal",
     eyebrow: "SERVICE 01",
     title: "Rust & Oxide Removal",
-    imageSrc: "/Service_and_About_sample_image/Service_01.png",
+    imageSrc: "/Service_and_About_sample_image/1 - Rust & Oxide removal.JPG",
     imageLeft: true,
     intro:
       "Rust left untreated leads to structural failure, costly rework, and coating system breakdown. Traditional abrasive blasting removes rust — but it also damages the substrate, creates significant waste, and leaves behind blast media residue that experienced buyers and inspectors notice immediately.",
@@ -112,7 +112,7 @@ const services: ServiceData[] = [
     id: "vehicle-rust-removal",
     eyebrow: "SERVICE 02",
     title: "Vehicle Body Rust Removal",
-    imageSrc: "/Service_and_About_sample_image/Service_02.png",
+    imageSrc: "/Service_and_About_sample_image/2 - Vehicle.png",
     imageLeft: false,
     intro:
       "Rusty vehicles — particularly those imported from overseas — are frequently affected by severe underbody corrosion caused by calcium chloride road salt. Traditional sandblasting removes the rust but leaves behind residue that experienced buyers recognise immediately, depressing resale value and raising questions about vehicle history.",
@@ -157,7 +157,7 @@ const services: ServiceData[] = [
     id: "industrial-surface-prep",
     eyebrow: "SERVICE 03",
     title: "Industrial Surface Preparation",
-    imageSrc: "/Service_and_About_sample_image/Service_03.png",
+    imageSrc: "/Service_and_About_sample_image/3 - Industrial.png",
     imageLeft: true,
     intro:
       "Surface preparation is the most critical factor in any protective coating system. Poor prep leads to premature coating failure, expensive rework, and potential safety risks. NZLCS provides laser-based surface preparation that delivers a clean, oxide-free surface — without abrasive blast media, dust, or chemical treatment.",

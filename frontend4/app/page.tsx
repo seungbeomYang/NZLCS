@@ -11,16 +11,19 @@ const services = [
     title: "Rust & Oxide Removal",
     body: "Precision laser removal of rust and oxidation from steel structures, pipelines, bridges, and machinery — without damaging the substrate.",
     href: "/services#rust-oxide-removal",
+    img: "/Service_and_About_sample_image/1 - Rust & Oxide removal.JPG",
   },
   {
     title: "Vehicle Body Rust Removal",
     body: "Residue-free underbody rust removal for Japanese import vehicles — no sandblast trace, higher resale value for dealers, WOF-ready.",
     href: "/services#vehicle-rust-removal",
+    img: "/Service_and_About_sample_image/2 - Vehicle.png",
   },
   {
     title: "Industrial Surface Preparation",
     body: "Pre-paint surface preparation, coating removal, and weld cleanup for manufacturing and industrial sites across New Zealand.",
     href: "/services#industrial-surface-prep",
+    img: "/Service_and_About_sample_image/3 - Industrial.png",
   },
 ];
 
@@ -28,18 +31,22 @@ const reasons = [
   {
     title: "Chemical-Free Process",
     body: "Laser only — zero chemicals, zero waste. The responsible choice for your team and the environment.",
+    img: "/Service_and_About_sample_image/4 - Chemical.png",
   },
   {
     title: "Pinpoint Precision",
     body: "Only the contaminant is removed — the substrate stays completely intact and undamaged. No grinding, no abrasion, no surface loss.",
+    img: "/Service_and_About_sample_image/5 - Pinpoint.png",
   },
   {
     title: "Mobile On-Site",
     body: "We come to you. Portable equipment means minimal disruption and no need to transport assets off-site.",
+    img: "/Service_and_About_sample_image/6 - Mobile.png",
   },
   {
     title: "End-to-End Service",
     body: "From rust removal and surface preparation through to primer, topcoats, and even intumescent coatings — we manage the full cycle. In partnership with NZCPM, a specialist protective coatings contractor, we deliver a single, coordinated service from bare steel to finished system.",
+    img: "/Service_and_About_sample_image/7 - End to End.png",
   },
 ];
 
@@ -124,10 +131,14 @@ export default function Home() {
                   i !== services.length - 1 ? "md:border-r border-border" : ""
                 } ${i !== 0 ? "border-t md:border-t-0" : ""}`}
               >
-                <div className="mb-6 aspect-[4/3] w-full overflow-hidden rounded-sm border border-border bg-surface">
-                  <div className="flex h-full w-full items-center justify-center">
-                    <div className="h-14 w-14 rounded-full bg-brand/15 ring-1 ring-brand/30" />
-                  </div>
+                <div className="relative mb-6 aspect-[4/3] w-full overflow-hidden rounded-sm border border-border bg-surface">
+                  <Image
+                    src={s.img}
+                    alt={s.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
                 <h3 className="font-sans text-2xl font-bold">{s.title}</h3>
                 <p className="mt-3 text-[14px] leading-7 text-muted">
@@ -156,9 +167,9 @@ export default function Home() {
               Why choose us?
             </h2>
             <p className="mt-5 max-w-xl text-[15px] leading-7 text-muted">
-              With years of hands-on experience across industrial and
-              commercial sites, we bring precision, safety, and environmental
-              responsibility to every job — no shortcuts.
+              Laser Cleaning isn't just a newer tool — it's a fundamentally better approach.
+              <br />
+              Here's what sets us apart from traditional methods.
             </p>
           </div>
         </div>
@@ -174,12 +185,14 @@ export default function Home() {
                     : ""
                 } ${i !== 0 ? "border-t md:border-t-0 sm:[&:nth-child(2)]:border-t-0" : ""}`}
               >
-                <div className="mb-6 aspect-[4/3] w-full overflow-hidden rounded-sm border border-border bg-surface">
-                  <div className="flex h-full w-full items-center justify-center">
-                    <span className="font-sans text-5xl font-bold text-brand/30">
-                      0{i + 1}
-                    </span>
-                  </div>
+                <div className="relative mb-6 aspect-[4/3] w-full overflow-hidden rounded-sm border border-border bg-surface">
+                  <Image
+                    src={r.img}
+                    alt={r.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+                  />
                 </div>
                 <h3 className="font-sans text-2xl font-bold">{r.title}</h3>
                 <p className="mt-3 text-[14px] leading-7 text-muted">
@@ -332,7 +345,7 @@ export default function Home() {
             </h5>
             <ul className="space-y-2 text-[13px] text-muted">
               <li>Rust Removal</li>
-              <li>Graffiti Removal</li>
+              <li>Vehicle Body Prep</li>
               <li>Industrial Prep</li>
             </ul>
           </div>

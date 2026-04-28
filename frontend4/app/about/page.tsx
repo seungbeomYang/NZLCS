@@ -116,8 +116,10 @@ export default function AboutPage() {
           <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             About NZLCS
           </p>
-          <h1 className="max-w-3xl font-sans text-5xl font-bold leading-[1.05] md:text-[64px]">
-            Setting a new standard for surface cleaning in New Zealand.
+          <h1 className="max-w-5xl font-sans text-5xl font-bold leading-[1.05] md:text-[64px]">
+            Built by Industry Veterans.
+            <br />
+            Powered by Laser Technology.
           </h1>
           <p className="mt-8 max-w-xl text-[15px] leading-7 text-muted">
             NZLCS was founded by industry professionals with deep backgrounds
@@ -166,7 +168,7 @@ export default function AboutPage() {
           <div className="relative min-h-[420px] overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/Service_and_About_sample_image/About_01.png"
+              src="/Service_and_About_sample_image/8 - about us.JPG"
               alt="Our Story"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -201,14 +203,14 @@ export default function AboutPage() {
 
       {/* ── TEAM / EXPERTISE ──────────────────────────────────────────────────── */}
       <section className="border-b border-border">
-        <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-16 text-center">
+        <div className="mx-auto max-w-[1280px] px-8 pt-24 pb-24 text-center">
           <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             Our Expertise
           </p>
-          <h2 className="mx-auto max-w-2xl font-sans text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="mx-auto max-w-2xl font-sans text-5xl font-bold leading-tight md:text-6xl">
             Industry knowledge you can rely on.
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-[15px] leading-7 text-muted">
+          <p className="mx-auto mt-8 max-w-2xl text-[18px] leading-8 text-muted">
             Our team&apos;s background spans construction estimating, quantity
             surveying, protective coatings, and project delivery. We
             don&apos;t just operate the equipment — we understand the broader
@@ -218,18 +220,6 @@ export default function AboutPage() {
             working with. That depth of knowledge is what sets us apart from
             equipment-only operators.
           </p>
-        </div>
-
-        {/* 16:9 team photo placeholder */}
-        <div className="mx-auto max-w-[1280px] px-8 pb-24">
-          <div className="relative aspect-video w-full overflow-hidden border border-border">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/Service_and_About_sample_image/About_02.png"
-              alt="Our team"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
         </div>
       </section>
 
