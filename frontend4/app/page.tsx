@@ -4,7 +4,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import QuoteForm from "./components/QuoteForm";
 import Footer from "./components/Footer";
 
-const HERO_SRC = "/hero image .png";
+const HERO_SRC = "/Service_and_About_sample_image/Home_Quote.png";
 
 const services = [
   {
@@ -73,6 +73,9 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 z-10">
           <div className="mx-auto max-w-[1280px] px-8 pb-20">
             <div className="max-w-xl text-white">
+              <p className="mb-4 text-brand-light tracking-widest font-bold" style={{ fontFamily: "var(--font-josefin), sans-serif", fontSize: "clamp(1.5rem, 3vw, 2.25rem)", lineHeight: 1.15 }}>
+                New Zealand<br />Laser Cleaning Solutions
+              </p>
               <h1 className="type-h1">
                 Clean with laser precision.
                 <br />
@@ -208,7 +211,7 @@ export default function Home() {
       {/* FREE QUOTE INQUIRY — form left, image right */}
       <section id="contact" className="border-t border-border">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 md:grid-cols-2">
-          <div className="px-8 py-24 md:pr-14">
+          <div className="px-8 pt-24 pb-0 md:pr-14">
             <p className="mb-3 type-eyebrow">
               Free Quote Inquiry
             </p>
@@ -224,13 +227,12 @@ export default function Home() {
             <QuoteForm formId="quote-upload-home" />
           </div>
 
-          <div className="relative min-h-[600px] w-full border-t border-border md:border-t-0 md:border-l">
-            <Image
+          <div className="w-full border-t border-border md:border-t-0 md:border-l">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={HERO_SRC}
               alt="NZLCS team at work"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="w-full h-auto block"
             />
           </div>
         </div>
